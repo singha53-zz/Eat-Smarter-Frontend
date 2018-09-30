@@ -4,7 +4,11 @@
 //Select multiple allergies 
 $(document).ready(function () {
     $('select').formSelect();
+    //Tabs 
+    $('.tabs').tabs();
 });
+
+
 
 
 //ENTER DISH
