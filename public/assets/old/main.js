@@ -329,16 +329,16 @@ $(document).ready(function () {
     });
 
     ///////////
-    var request = require("request");
+    // var request = require("request");
 
 
-    request.get(
-      "https://api.yummly.com/v1/api/recipe/?_app_id=6fe80130&_app_key=e47479bfbd3e29b4ddd5ceb95d60916f",
-      { json: true },
-      (err, response, body) => {
-        return result;
+    // request.get(
+    //   "https://api.yummly.com/v1/api/recipe/?_app_id=6fe80130&_app_key=e47479bfbd3e29b4ddd5ceb95d60916f",
+    //   { json: true },
+    //   (err, response, body) => {
+    //     return result;
 
-      });
+    //   });
     ////////
 
 
