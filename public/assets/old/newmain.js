@@ -54,22 +54,31 @@ function searchRecipes() {
             var recipeIngredients = recipeResult["ingredients"];
 
             console.log("Name:" + recipeName + " || " + "ID: " + recipeID + " || " + "Image: " + recipeImage + " || " + "Ingredients: " + recipeIngredients);
+
+
+
+            //Appending to HTML 
+            var recipeDiv = $("<div>");
+            recipeDiv.addClass("card horizontal");
+            recipeDiv.html(`
+            <div class="card-stacked" >
+            <div class="card" id=${recipeID} draggable="true" ondragstart="drag(event)">
+            <div class="card-image waves-effect waves-block waves-light recipe-info">
+            <img class="activator" id=${recipeID} src=${recipeImage}
+            height="100%">
+                 </div>
+                 <span class="card-title activator grey-text text-darken-4 center">${recipeName}<i class="btn-floating btn-medium waves-effect waves-light red lighten-3 material-icons right">add</i></span>
+              </div>
+            </div>`);
+
+            $("#recipeList").append(recipeDiv);
+
         }
     });
 };
 
 
-//Show in html
 
 
-//On click display recipe details 
-
-
-
-
-
-//DRAG FEATURE 
-//------------------------------
-//Allow user to drag recipe into day of week 
 
 

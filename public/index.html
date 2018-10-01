@@ -121,21 +121,22 @@
   <div class="container">
     <div class="row">
       <div class="col s3">
+        <div id="recipeList" style=" padding-top: 1rem;
+        overflow: auto;max-height: 120vh;">
+          <div class="card" id="drag1" draggable="true" ondragstart="drag(event)">
+            <div class="card-image waves-effect waves-block waves-light recipe-info">
+              <img class="activator" src="https://images.unsplash.com/photo-1538140177897-d71d1643349e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=058d4a817fafacf72008b4fe55a4f07f&auto=format&fit=crop&w=1352&q=80"
+                height="100%">
+            </div>
+            <span class="card-title activator grey-text text-darken-4 center">BURGER <i class="btn-floating btn-medium waves-effect waves-light red lighten-3 material-icons right">add</i></span>
 
-        <div class="card recipeList" id="drag1" draggable="true" ondragstart="drag(event)">
-          <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" src="https://images.unsplash.com/photo-1538140177897-d71d1643349e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=058d4a817fafacf72008b4fe55a4f07f&auto=format&fit=crop&w=1352&q=80"
-              height="100%">
           </div>
-          <span class="card-title activator grey-text text-darken-4 center">BURGER <i class="btn-floating btn-medium waves-effect waves-light red lighten-3 material-icons right">add</i></span>
 
         </div>
 
-
-
-        <!-- RecipeList -->
+        <!-- RecipeList
         <div id="recipeList" id="dropit" ondrop="drop(event)" ondragover="allowDrop(event)" style=" padding-top: 1rem;
-          overflow: auto;max-height: 120vh;"></div>
+          overflow: auto;max-height: 120vh;"></div> -->
 
       </div>
 
@@ -192,23 +193,22 @@
             <div id="test-swipe-1" class="col s12 teal lighten-3">
               <div class="divider"></div>
               <div class="section">
-                <h5>BREAKFAST</h5>
                 <div class="dropOff" id="dropit1" ondrop="drop(event)" ondragover="allowDrop(event)">
-                  <p>Drag here</p>
+                  <h5 id="breakfast">BREAKFAST</h5>
                 </div>
               </div>
               <div class="divider"></div>
               <div class="section">
-                <h5>LUNCH</h5>
+
                 <div class="dropOff" id="dropit1" ondrop="drop(event)" ondragover="allowDrop(event)">
-                  <p>Drag here</p>
+                  <h5 id="lunch">LUNCH</h5>
                 </div>
               </div>
               <div class="divider"></div>
               <div class="section">
-                <h5>DINNER</h5>
+
                 <div class="dropOff" id="dropit1" ondrop="drop(event)" ondragover="allowDrop(event)">
-                  <p>Drag here</p>
+                  <h5 id="dinner">DINNER</h5>
                 </div>
               </div>
             </div>
@@ -216,23 +216,20 @@
             <div id="test-swipe-2" class="col s12 red lighten-3">
               <div class="divider"></div>
               <div class="section">
-                <h5>BREAKFAST</h5>
                 <div class="dropOff" id="dropit1" ondrop="drop(event)" ondragover="allowDrop(event)">
-                  <p>Drag here</p>
+                  <h5 id="breakfast">BREAKFAST</h5>
                 </div>
               </div>
               <div class="divider"></div>
               <div class="section">
-                <h5>LUNCH</h5>
                 <div class="dropOff" id="dropit1" ondrop="drop(event)" ondragover="allowDrop(event)">
-                  <p>Drag here</p>
+                  <h5 id="lunch">LUNCH</h5>
                 </div>
               </div>
               <div class="divider"></div>
               <div class="section">
-                <h5>DINNER</h5>
                 <div class="dropOff" id="dropit1" ondrop="drop(event)" ondragover="allowDrop(event)">
-                  <p>Drag here</p>
+                  <h5 id="dinner">DINNER</h5>
                 </div>
               </div>
             </div>
@@ -240,23 +237,20 @@
             <div id="test-swipe-3" class="col s12 teal lighten-3">
               <div class="divider"></div>
               <div class="section">
-                <h5>BREAKFAST</h5>
                 <div class="dropOff" id="dropit1" ondrop="drop(event)" ondragover="allowDrop(event)">
-                  <p>Drag here</p>
+                  <h5 id="breakfast">BREAKFAST</h5>
                 </div>
               </div>
               <div class="divider"></div>
               <div class="section">
-                <h5>LUNCH</h5>
-                <div class="dropOff">
-                  <p>Drag here</p>
+                <div class="dropOff" id="dropit1" ondrop="drop(event)" ondragover="allowDrop(event)">
+                  <h5 id="lunch">LUNCH</h5>
                 </div>
               </div>
               <div class="divider"></div>
               <div class="section">
-                <h5>DINNER</h5>
                 <div class="dropOff" id="dropit1" ondrop="drop(event)" ondragover="allowDrop(event)">
-                  <p>Drag here</p>
+                  <h5 id="lunch">DINNER</h5>
                 </div>
               </div>
             </div>
@@ -264,23 +258,20 @@
             <div id="test-swipe-4" class="col s12 red lighten-3">
               <div class="divider"></div>
               <div class="section">
-                <h5>BREAKFAST</h5>
                 <div class="dropOff" id="dropit1" ondrop="drop(event)" ondragover="allowDrop(event)">
-                  <p>Drag here</p>
+                  <h5 id="breakfast">BREAKFAST</h5>
                 </div>
               </div>
               <div class="divider"></div>
               <div class="section">
-                <h5>LUNCH</h5>
                 <div class="dropOff" id="dropit1" ondrop="drop(event)" ondragover="allowDrop(event)">
-                  <p>Drag here</p>
+                  <h5 id="lunch">LUNCH</h5>
                 </div>
               </div>
               <div class="divider"></div>
               <div class="section">
-                <h5>DINNER</h5>
                 <div class="dropOff" id="dropit1" ondrop="drop(event)" ondragover="allowDrop(event)">
-                  <p>Drag here</p>
+                  <h5 id="dinner">DINNER</h5>
                 </div>
               </div>
             </div>
@@ -288,23 +279,20 @@
             <div id="test-swipe-5" class="col s12 teal lighten-3">
               <div class="divider"></div>
               <div class="section">
-                <h5>BREAKFAST</h5>
                 <div class="dropOff" id="dropit1" ondrop="drop(event)" ondragover="allowDrop(event)">
-                  <p>Drag here</p>
+                  <h5 id="breakfast">BREAKFAST</h5>
                 </div>
               </div>
               <div class="divider"></div>
               <div class="section">
-                <h5>LUNCH</h5>
                 <div class="dropOff" id="dropit1" ondrop="drop(event)" ondragover="allowDrop(event)">
-                  <p>Drag here</p>
+                  <h5 id="lunch">LUNCH</h5>
                 </div>
               </div>
               <div class="divider"></div>
               <div class="section">
-                <h5>DINNER</h5>
                 <div class="dropOff" id="dropit1" ondrop="drop(event)" ondragover="allowDrop(event)">
-                  <p>Drag here</p>
+                  <h5 id="dinner">DINNER</h5>
                 </div>
               </div>
             </div>
@@ -312,23 +300,20 @@
             <div id="test-swipe-6" class="col s12 red lighten-3">
               <div class="divider"></div>
               <div class="section">
-                <h5>BREAKFAST</h5>
                 <div class="dropOff" id="dropit1" ondrop="drop(event)" ondragover="allowDrop(event)">
-                  <p>Drag here</p>
+                  <h5 id="breakfast">BREAKFAST</h5>
                 </div>
               </div>
               <div class="divider"></div>
               <div class="section">
-                <h5>LUNCH</h5>
                 <div class="dropOff" id="dropit1" ondrop="drop(event)" ondragover="allowDrop(event)">
-                  <p>Drag here</p>
+                  <h5 id="lunch">LUNCH</h5>
                 </div>
               </div>
               <div class="divider"></div>
               <div class="section">
-                <h5>DINNER</h5>
                 <div class="dropOff" id="dropit1" ondrop="drop(event)" ondragover="allowDrop(event)">
-                  <p>Drag here</p>
+                  <h5 id="dinner">DINNER</h5>
                 </div>
               </div>
             </div>
@@ -336,23 +321,20 @@
             <div id="test-swipe-7" class="col s12 teal lighten-3">
               <div class="divider"></div>
               <div class="section">
-                <h5>BREAKFAST</h5>
                 <div class="dropOff" id="dropit1" ondrop="drop(event)" ondragover="allowDrop(event)">
-                  <p>Drag here</p>
+                  <h5 id="breakfast">BREAKFAST</h5>
                 </div>
               </div>
               <div class="divider"></div>
               <div class="section">
-                <h5>LUNCH</h5>
                 <div class="dropOff" id="dropit1" ondrop="drop(event)" ondragover="allowDrop(event)">
-                  <p>Drag here</p>
+                  <h5 id="lunch">LUNCH</h5>
                 </div>
               </div>
               <div class="divider"></div>
               <div class="section">
-                <h5>DINNER</h5>
                 <div class="dropOff" id="dropit1" ondrop="drop(event)" ondragover="allowDrop(event)">
-                  <p>Drag here</p>
+                  <h5 id="dinner">DINNER</h5>
                 </div>
               </div>
             </div>
@@ -391,43 +373,17 @@
   </div>
 
 
-
-  <style>
-
-
-    #trashcan {
-      content: url('https://cdn1.iconfinder.com/data/icons/Vista-Inspirate_1.0/128x128/filesystems/trashcan_full.png');
-      width: 200px;
-      height: 200px;
-    }
-
-    #trashcan:hover {
-      content: url('https://cdn1.iconfinder.com/data/icons/nuove/128x128/filesystems/trashcan_empty.png');
-    }
-
-    #dropit:hover {
-      border: solid darkred 5px;
-    }
-
- 
-  </style>
-
-
-
-
   <script>
-    // var express = require("express");
+    //DRAG FEATURE 
+    //------------------------------
+    //Allow user to drag recipe into day of week 
 
-
-    // $("#clearDay").on("click", function () {
-    //   $("#breakfast").empty();
-    // });
     function allowDrop(recipe) {
       recipe.preventDefault();
     }
 
     function drag(recipe) {
-      console.log("Recipe Id:" + recipe.target.childNodes[1].id);
+      console.log("Recipe Id:" + recipe.target.id);
       recipe.dataTransfer.setData("text", recipe.target.id);
       recipe.dataTransfer.effectAllowed = "move";
       if (draggable = "true") {
@@ -437,7 +393,7 @@
     }
 
     function drop(recipe) {
-      console.log("Meal:" + recipe.toElement.innerText);
+      console.log("Meal:" + recipe.toElement.id);
       var dayWeek = $("#mealPlanDay").val();;
       console.log("Day:" + dayWeek)
       recipe.preventDefault();

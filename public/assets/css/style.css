@@ -175,3 +175,17 @@ a, li, p {
   max-height: 30%;
   overflow: auto;
 }
+
+/* #trashcan {
+  content: url('https://cdn1.iconfinder.com/data/icons/Vista-Inspirate_1.0/128x128/filesystems/trashcan_full.png');
+  width: 200px;
+  height: 200px;
+}
+
+#trashcan:hover {
+  content: url('https://cdn1.iconfinder.com/data/icons/nuove/128x128/filesystems/trashcan_empty.png');
+}
+
+#dropit:hover {
+  border: solid darkred 5px;
+} */
