@@ -26,6 +26,7 @@ $("#submit").on("click", function () {
 //Store selected value 
 $("#submit").on("click", function () {
     searchRecipes();
+
 })
 
 
@@ -37,11 +38,12 @@ function searchRecipes() {
     var allergyInput = $("#allergy").val();
     var mealInput = $("#meal").val();
     var mealSearch = "&q=" + mealInput;
-    var tempKey = "&_app_key=6eaaa7c45fffeea3f37d9adb28ad9960&q";
+    var tempKey = config.MY_KEY;
+    var appID = config.SECRET_KEY;
     var searchAllergy = "&allowedAllergy[]=" + allergyInput;
 
 
-    $.get("http://api.yummly.com/v1/api/recipes?_app_id=30885432" + tempKey + mealSearch + searchAllergy, function (response) {
+    $.get("http://api.yummly.com/v1/api/recipes?_app_id=" + appID + tempKey + mealSearch + searchAllergy, function (response) {
         console.log(response);
         //saving data in array 
         var matches = response["matches"];

@@ -393,6 +393,9 @@
     }
 
     function drop(recipe) {
+      recipe.preventDefault();
+      //meal type
+      console.log("Meal:" + recipe.toElement.id);
       //active tab 
       $("#tabs-swipe-demo li").click(function () {
         if (!$(this).hasClass("active")) {
@@ -401,10 +404,6 @@
           console.log("Weekday:" + $(this).find("a").html())
         }
       })
-      //meal type
-      console.log("Meal:" + recipe.toElement.id);
-
-      recipe.preventDefault();
       var data = recipe.dataTransfer.getData("text");
       recipe.target.appendChild(document.getElementById(data));
 
@@ -454,6 +453,7 @@
   <!-- <script src="./assets/javascript/functions.js"></script> -->
 
   <!-- app JS code -->
+  <script type='text/javascript' src='assets/old/config.js'></script>
   <script type="module" src="assets/old/newmain.js"></script>
   <!-- app JS code -->
   <!-- <script src="assets/javascript/registerapp.js"></script> -->
