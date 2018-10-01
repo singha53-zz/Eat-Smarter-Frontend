@@ -9,12 +9,13 @@
   <link rel="stylesheet" href="assets/css/reset.css">
   <!-- Materalize icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+  <!-- Style Sheet -->
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
   <nav>
+    <!-- Navigation Bar -->
     <div class="nav-wrapper">
       <img src="assets/Images/EatSmart-logo1.jpg" alt="logo" class="brand-logo" height="56">
       <!-- <a href="#!" class="brand-logo">EatSmart</a> -->
@@ -116,17 +117,31 @@
   </ul>
 
 
-
+  <!-- MAIN -->
   <div class="container">
     <div class="row">
       <div class="col s3">
+
+        <div class="card" id="drag1" draggable="true" ondragstart="drag(event)">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="https://images.unsplash.com/photo-1538140177897-d71d1643349e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=058d4a817fafacf72008b4fe55a4f07f&auto=format&fit=crop&w=1352&q=80"
+              height="100%">
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">BURGER<i class="material-icons right">more_vert</i></span>
+              <p><a href="#">RECIPE LINK</a></p>
+            </div>
+            <a class="btn-floating btn-medium waves-effect waves-light red lighten-3"><i class="material-icons">add</i></a>
+          </div>
+
+        </div>
+
+
+
+        <!-- RecipeList -->
         <div id="recipeList" id="dropit" ondrop="drop(event)" ondragover="allowDrop(event)" style=" padding-top: 1rem;
           overflow: auto;max-height: 120vh;"></div>
 
       </div>
-
-
-
 
       <div class="col s9">
 
@@ -158,7 +173,7 @@
         </div>
 
 
-        <!-- Search recipe -->
+        <!-- Submit Search recipe -->
         <button class="btn waves-effect waves-light" type="submit" name="action" id="submit">Search
           <i class="material-icons right">send</i>
         </button>
@@ -168,20 +183,21 @@
         <div class="row">
           <div class="col s12">
             <ul id="tabs-swipe-demo" class="tabs">
-              <li class="tab col s2"><a href="#test-swipe-1">M</a></li>
-              <li class="tab col s2"><a href="#test-swipe-2">T</a></li>
-              <li class="tab col s1"><a href="#test-swipe-3">W</a></li>
-              <li class="tab col s2"><a href="#test-swipe-4">TH</a></li>
-              <li class="tab col s1"><a href="#test-swipe-5">F</a></li>
+              <li class="tab col s2"><a href="#test-swipe-1">MON</a></li>
+              <li class="tab col s2"><a href="#test-swipe-2">TUE</a></li>
+              <li class="tab col s2"><a href="#test-swipe-3">WED</a></li>
+              <li class="tab col s2"><a href="#test-swipe-4">THR</a></li>
+              <li class="tab col s2"><a href="#test-swipe-5">FRI</a></li>
               <li class="tab col s2"><a href="#test-swipe-6">SAT</a></li>
               <li class="tab col s2"><a href="#test-swipe-7">SUN</a></li>
 
             </ul>
+            <!-- Monday -->
             <div id="test-swipe-1" class="col s12 teal lighten-3">
               <div class="divider"></div>
               <div class="section">
                 <h5>BREAKFAST</h5>
-                <div class="dropOff">
+                <div class="dropOff" id="dropit1" ondrop="drop(event)" ondragover="allowDrop(event)">
                   <p>Drag here</p>
                 </div>
               </div>
@@ -200,6 +216,7 @@
                 </div>
               </div>
             </div>
+            <!-- Tuesday -->
             <div id="test-swipe-2" class="col s12 red lighten-3">
               <div class="divider"></div>
               <div class="section">
@@ -223,6 +240,7 @@
                 </div>
               </div>
             </div>
+            <!--Wednesday -->
             <div id="test-swipe-3" class="col s12 teal lighten-3">
               <div class="divider"></div>
               <div class="section">
@@ -246,6 +264,7 @@
                 </div>
               </div>
             </div>
+            <!-- Thursday -->
             <div id="test-swipe-4" class="col s12 red lighten-3">
               <div class="divider"></div>
               <div class="section">
@@ -269,6 +288,7 @@
                 </div>
               </div>
             </div>
+            <!-- Friday -->
             <div id="test-swipe-5" class="col s12 teal lighten-3">
               <div class="divider"></div>
               <div class="section">
@@ -292,6 +312,7 @@
                 </div>
               </div>
             </div>
+            <!-- Saturday -->
             <div id="test-swipe-6" class="col s12 red lighten-3">
               <div class="divider"></div>
               <div class="section">
@@ -315,6 +336,7 @@
                 </div>
               </div>
             </div>
+            <!-- Sunday -->
             <div id="test-swipe-7" class="col s12 teal lighten-3">
               <div class="divider"></div>
               <div class="section">
@@ -341,12 +363,15 @@
 
           </div>
         </div>
-        <div id="dropit1" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+        <a class="waves-effect waves-light btn-large"><i class="material-icons left">check_circle</i>SAVE</a>
+
+        <!-- Toss Bin -->
+        <!-- <div id="dropit1" ondrop="drop(event)" ondragover="allowDrop(event)">
           <img src="https://cdn1.iconfinder.com/data/icons/Vista-Inspirate_1.0/128x128/filesystems/trashcan_full.png"
             id="trashcan">
 
-        </div>
-
+        </div> -->
 
         <div id="recipeDisplay" style="padding-top: 1rem; overflow: auto;min-height: 53vh; max-height: 53vh;"></div>
 
@@ -372,9 +397,7 @@
 
 
   <style>
-    .dragging {
-      opacity: .25;
-    }
+
 
     #trashcan {
       content: url('https://cdn1.iconfinder.com/data/icons/Vista-Inspirate_1.0/128x128/filesystems/trashcan_full.png');
