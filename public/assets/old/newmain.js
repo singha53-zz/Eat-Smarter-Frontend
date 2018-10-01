@@ -9,10 +9,6 @@ $(document).ready(function () {
 });
 
 
-
-
-
-
 //ENTER DISH
 //------------------------------
 // Store input value 
@@ -21,7 +17,7 @@ $("#submit").on("click", function () {
     console.log(mealInput);
 });
 
-//SELECT ALLERGY
+//SELECT RECIPES
 //------------------------------
 //Store selected value 
 $("#submit").on("click", function () {
@@ -52,18 +48,18 @@ function searchRecipes() {
             var recipeResult = matches[i];
             console.log(recipeResult)
 
-
+            //recipe details
             var recipeName = recipeResult["sourceDisplayName"];
             var recipeID = recipeResult["id"];
             var recipeImage = recipeResult["smallImageUrls"];
             var recipeIngredients = recipeResult["ingredients"];
-
+            //testing results
             console.log("Name:" + recipeName + " || " + "ID: " + recipeID + " || " + "Image: " + recipeImage + " || " + "Ingredients: " + recipeIngredients);
 
 
 
             //Appending to HTML 
-            var recipeDiv = $("<div>");
+            var recipeDiv = $("<div>")
             recipeDiv.addClass("card horizontal");
             recipeDiv.html(`
             <div class="card-stacked" >
@@ -83,7 +79,16 @@ function searchRecipes() {
 };
 
 
-
+//SAVE THE WEEK 
+//-----------------------------
+//on "Save"
+$("#save-week").on("click", function () {
+    var tabs = $("#tabs-swipe-demo li");
+    //iterate through the tabs 
+    for (var i = 0; i < tabs.length; i++) {
+        console.log("Tabs: " + tabs[i].id)
+    }
+});
 
 
 
