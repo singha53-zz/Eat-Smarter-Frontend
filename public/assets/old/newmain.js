@@ -25,6 +25,7 @@ $("#submit").on("click", function () {
 //------------------------------
 //Store selected value 
 $("#submit").on("click", function () {
+    $('#recipeList').html('');
     searchRecipes();
 
 })
