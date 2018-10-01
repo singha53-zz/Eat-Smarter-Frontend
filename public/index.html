@@ -180,13 +180,13 @@
         <div class="row">
           <div class="col s12">
             <ul id="tabs-swipe-demo" class="tabs">
-              <li class="tab col s2"><a href="#test-swipe-1">MON</a></li>
-              <li class="tab col s2"><a href="#test-swipe-2">TUE</a></li>
-              <li class="tab col s2"><a href="#test-swipe-3">WED</a></li>
-              <li class="tab col s2"><a href="#test-swipe-4">THR</a></li>
-              <li class="tab col s2"><a href="#test-swipe-5">FRI</a></li>
-              <li class="tab col s2"><a href="#test-swipe-6">SAT</a></li>
-              <li class="tab col s2"><a href="#test-swipe-7">SUN</a></li>
+              <li id="monday" class="tab col s2"><a href="#test-swipe-1">MON</a></li>
+              <li id="tuesday" class="tab col s2"><a href="#test-swipe-2">TUE</a></li>
+              <li id="wednesday" class="tab col s2"><a href="#test-swipe-3">WED</a></li>
+              <li id="thursday" class="tab col s2"><a href="#test-swipe-4">THR</a></li>
+              <li id="friday" class="tab col s2"><a href="#test-swipe-5">FRI</a></li>
+              <li id="saturday" class="tab col s2"><a href="#test-swipe-6">SAT</a></li>
+              <li id="sunday" class="tab col s2"><a href="#test-swipe-7">SUN</a></li>
 
             </ul>
             <!-- Monday -->
@@ -393,9 +393,17 @@
     }
 
     function drop(recipe) {
+      //active tab 
+      $("#tabs-swipe-demo li").click(function () {
+        if (!$(this).hasClass("active")) {
+          $("#tabs-swipe-demo li.active").removeClass("active")
+          $(this).addClass("active")
+          console.log("Weekday:" + $(this).find("a").html())
+        }
+      })
+      //meal type
       console.log("Meal:" + recipe.toElement.id);
-      var dayWeek = $("#mealPlanDay").val();;
-      console.log("Day:" + dayWeek)
+
       recipe.preventDefault();
       var data = recipe.dataTransfer.getData("text");
       recipe.target.appendChild(document.getElementById(data));

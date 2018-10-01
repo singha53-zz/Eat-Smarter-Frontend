@@ -11,6 +11,8 @@ $(document).ready(function () {
 
 
 
+
+
 //ENTER DISH
 //------------------------------
 // Store input value 
@@ -76,6 +78,7 @@ function searchRecipes() {
         }
     });
 };
+
 
 
 
