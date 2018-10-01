@@ -23,7 +23,6 @@ $("#submit").on("click", function () {
 $("#submit").on("click", function () {
     $('#recipeList').html('');
     searchRecipes();
-
 })
 
 
@@ -78,6 +77,9 @@ function searchRecipes() {
     });
 };
 
+//#####################
+//IN PROGRESS BELOW
+//#####################
 
 //SAVE THE WEEK 
 //-----------------------------
@@ -86,7 +88,11 @@ $("#save-week").on("click", function () {
     var tabs = $("#tabs-swipe-demo li");
     //iterate through the tabs 
     for (var i = 0; i < tabs.length; i++) {
-        console.log("Tabs: " + tabs[i].id)
+        console.log("Day:" + tabs[i].id)
+        if (tabs[i].id == "monday") {
+            var main = $(".monday").val();
+            console.log("Monday Meal: " + main)
+        }
     }
 });
 
