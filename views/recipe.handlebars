@@ -1,0 +1,41 @@
+<div id="recipes">
+    <div class="containter">
+        {{!-- Header for Recipe --}}
+        <div class="modal-header">
+            <div class="col text-center" id="recipeName">
+                <h2>{{recipeName}}</h2>
+            </div>
+        </div>
+
+        {{!-- Recipe Img, Prep Time and Serving info Section --}}
+        <div class="row align-items-center">
+            <div id="recipeImage" class="col-sm-6">
+                <img src="{{recipeImage}}">
+            </div>
+            <div class="col-sm-6">
+                <div id="prepTime">Prep Time: {{prepTime}}</div>
+                <div id="servings">Servings: {{servings}}</div>
+            </div>
+
+        </div>
+
+        {{!-- Recipe --}}
+        <div>
+            <form action="{{recipeURL}}">
+                <input type="submit" value="Go to Recipe" />
+            </form>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+</div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/recipe.js"></script>
