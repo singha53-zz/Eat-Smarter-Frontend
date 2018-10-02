@@ -1,9 +1,9 @@
 var request = require("request");
 var Meal = require("../models/meal");
 
-module.exports = function(app) {
+module.exports = function (app) {
   // Load index page
-  app.get("/", function(req, res) {
+  app.get("/", function (req, res) {
     request.get(
       "https://young-island-66909.herokuapp.com/api/getMealPlan",
       { json: true },
@@ -20,7 +20,8 @@ module.exports = function(app) {
   });
 
   // Render 404 page for any unmatched routes
-  app.get("*", function(req, res) {
+  app.get("*", function (req, res) {
     res.render("404");
   });
+
 };

@@ -1,0 +1,191 @@
+html {
+  min-height: 100%;
+}
+
+
+/* hide sign in buttons */
+.hidden {
+  visibility: hidden;
+}
+
+nav .brand-logo {
+  position: absolute;
+  color: #fff;
+  display: inline-block;
+  font-size: 2.1rem;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  background: url("https://images.unsplash.com/photo-1495195129352-aeb325a55b65?ixlib=rb-0.3.5&s=4be08f60880c4f9b5344eb20d13465ee&auto=format&fit=crop&w=1355&q=80");
+  /* background-repeat: no-repeat; */
+  background-size: cover;
+}
+
+th {
+  background: white;
+  text-align: center;
+}
+
+table,
+th {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.row .col.s9 {
+  width: 50%;
+  margin-left: auto;
+  left: auto;
+  right: auto;
+  background: rgba(255, 255, 255, 0.7);
+  margin-top: 10px;
+  border-radius: 2px;
+  max-height: 120vh;
+  margin-bottom: auto;
+}
+
+img {
+  border-style: none;
+  max-height: 73px;
+}
+
+td,
+th {
+  padding: 15px 5px;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 2px;
+  background: black;
+  color: white;
+}
+
+#breakfast,
+#lunch,
+#dinner,
+#snack {
+  background: white;
+  margin: auto;
+}
+
+#recipeList {
+  margin-top: 10px;
+}
+
+.input-field > label {
+  color: black;
+}
+
+#recipeContent {
+  margin-bottom: 10px;
+}
+
+.textcenter {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.sass-container {
+  /* margin-left: auto;
+  margin-right: auto; */
+  background-color: white;
+  padding: 10px;
+  width: 80%;
+  margin: auto;
+}
+
+#register-form {
+padding: 5%;
+margin: 10%;
+margin-left: 15%;
+margin-right: 15%;
+background: white;
+}
+
+#login-form {
+  padding: 5%;
+  margin: 10%;
+  margin-left: 15%;
+  margin-right: 15%;
+  background: white;
+}
+
+.profile-content {
+  padding: 5%;
+  margin: 10%;
+  margin-left: 15%;
+  margin-right: 15%;
+  background: white;
+  align-content: center;
+}
+
+/* change mouseover from cursor to pointer for all anchor tags */
+a, li, p {
+  cursor: pointer;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+
+/* #trashcan {
+  content: url('https://cdn1.iconfinder.com/data/icons/Vista-Inspirate_1.0/128x128/filesystems/trashcan_full.png');
+  width: 200px;
+  height: 200px;
+}
+
+#trashcan:hover {
+  content: url('https://cdn1.iconfinder.com/data/icons/nuove/128x128/filesystems/trashcan_empty.png');
+}
+
+#dropit:hover {
+  border: solid darkred 5px;
+} */
