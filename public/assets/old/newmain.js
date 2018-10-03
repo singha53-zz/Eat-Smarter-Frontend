@@ -52,6 +52,7 @@ function searchRecipes() {
             var recipeID = recipeResult["id"];
             var recipeImage = recipeResult["smallImageUrls"];
             var recipeIngredients = recipeResult["ingredients"];
+
             //testing results
             console.log("Name:" + recipeName + " || " + "ID: " + recipeID + " || " + "Image: " + recipeImage + " || " + "Ingredients: " + recipeIngredients);
 
@@ -61,10 +62,10 @@ function searchRecipes() {
             var recipeDiv = $("<div>")
             recipeDiv.addClass("card horizontal");
             recipeDiv.html(`
-            <div class="card-stacked" >
+            <div class="card-stacked">
             <div class="card" id=${recipeID} draggable="true" ondragstart="drag(event)">
             <div class="card-image waves-effect waves-block waves-light recipe-info">
-            <img class="activator" id=${recipeID} src=${recipeImage}
+            <img class="activator recipeurl" id=${recipeID} src=${recipeImage}
             height="100%">
                  </div>
                  <span class="card-title activator grey-text text-darken-4 center">${recipeName}<i class="btn-floating btn-medium waves-effect waves-light red lighten-3 material-icons right">add</i></span>
@@ -75,14 +76,18 @@ function searchRecipes() {
 
 
             //CLEAR DAY 
-            //** TIPS: project starter demo 4th, 16-project 2
+            //** Tip: project starter demo 4th, 16-project 2
             //-------------------
-            $("#clearbtn").on("click", function () {
-                var recipeDragged = $("#dropit1")
+            $(".clearbtn").on("click", function () {
+                var recipeDragged = $(".dropit1")
                 recipeDragged.empty();
             })
 
-
+            //Open Recipe 
+            $(".recipeurl").on("click", function () {
+                // var openURL = recipeResult.sourceRecipeUrl
+                // console.log("URL:" + openURL)
+            })
 
         }
     });
@@ -91,9 +96,6 @@ function searchRecipes() {
 //#####################
 //IN PROGRESS BELOW
 //#####################
-
-
-
 
 
 //SAVE THE WEEK 
