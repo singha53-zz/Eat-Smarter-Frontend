@@ -6,34 +6,82 @@ var $exampleList = $("#example-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function (example) {
+  createUser: function(user) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
+      url: "api/createUser",
+      data: JSON.stringify(user)
     });
   },
-  getExamples: function () {
+  saveDailyMealPlan: function(dailyMealPlan) {
     return $.ajax({
-      url: "api/examples",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      type: "POST",
+      url: "api/saveDailyMealPlan",
+      data: JSON.stringify(dailyMealPlan)
+    });
+  },
+  associateAllergy: function(allergy) {
+    return $.ajax({
+      headers: {
+        "Content-Type": "application/json"
+      },
+      type: "POST",
+      url: "api/associateAllergy",
+      data: JSON.stringify(allergy)
+    });
+  },
+  favouriteAdd: function(favourite) {
+    return $.ajax({
+      headers: {
+        "Content-Type": "application/json"
+      },
+      type: "POST",
+      url: "api/favourite/add",
+      data: JSON.stringify(favourite)
+    });
+  },
+  getRecipes: function() {
+    return $.ajax({
+      url: "api/getRecipes",
       type: "GET"
     });
   },
-  deleteExample: function (id) {
+  getRecipesById: function(recipeId) {
     return $.ajax({
-      url: "api/examples/" + id,
+      url: "api/getRecipes:" + recipeId,
+      type: "GET"
+    });
+  },
+  deleteFavourite: function() {
+    return $.ajax({
+      url: "api/favourite/destroy",
       type: "DELETE"
+    });
+  },
+  deleteUser: function() {
+    return $.ajax({
+      url: "api/user/destroy",
+      type: "DELETE"
+    });
+  },
+  getUser: function() {
+    return $.ajax({
+      url: "api/getUser",
+      type: "GET"
     });
   }
 };
 
 // refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function () {
-  API.getExamples().then(function (data) {
-    var $examples = data.map(function (example) {
+var refreshExamples = function() {
+  API.getExamples().then(function(data) {
+    var $examples = data.map(function(example) {
       var $a = $("<a>")
         .text(example.text)
         .attr("href", "/example/" + example.id);
@@ -61,7 +109,7 @@ var refreshExamples = function () {
 
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
-var handleFormSubmit = function (event) {
+var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var example = {
@@ -74,7 +122,7 @@ var handleFormSubmit = function (event) {
     return;
   }
 
-  API.saveExample(example).then(function () {
+  API.saveExample(example).then(function() {
     refreshExamples();
   });
 
@@ -84,12 +132,12 @@ var handleFormSubmit = function (event) {
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function () {
+var handleDeleteBtnClick = function() {
   var idToDelete = $(this)
     .parent()
     .attr("data-id");
 
-  API.deleteExample(idToDelete).then(function () {
+  API.deleteExample(idToDelete).then(function() {
     refreshExamples();
   });
 };
@@ -98,4 +146,24 @@ var handleDeleteBtnClick = function () {
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
 
+// Button to open Recipe Page in new Tab
 
+var $recipeButton = $("#recipeButton");
+
+var handleRecipeButton = function() {
+  var recipeUrl = $(this).attr("recipeUrl");
+
+  API.getRecipesById(recipeId).then(function() {
+    recipeUrl = recipeUrl.attr().attribution.html;
+  });
+};
+
+$recipeButton.on("click", handleRecipeButton);
+
+{
+  /* <input
+  type="button"
+  value="recipeButton"
+  onclick="window.open('http://www.website.com/page')"
+/>; */
+}
