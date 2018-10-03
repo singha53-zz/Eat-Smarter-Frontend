@@ -73,6 +73,17 @@ function searchRecipes() {
 
             $("#recipeList").append(recipeDiv);
 
+
+            //CLEAR DAY 
+            //** TIPS: project starter demo 4th, 16-project 2
+            //-------------------
+            $("#clearbtn").on("click", function () {
+                var recipeDragged = $("#dropit1")
+                recipeDragged.empty();
+            })
+
+
+
         }
     });
 };
@@ -81,21 +92,40 @@ function searchRecipes() {
 //IN PROGRESS BELOW
 //#####################
 
+
+
+
+
 //SAVE THE WEEK 
 //-----------------------------
 //on "Save"
-$("#save-week").on("click", function () {
-    var tabs = $("#tabs-swipe-demo li");
-    //iterate through the tabs 
-    for (var i = 0; i < tabs.length; i++) {
-        console.log("Day:" + tabs[i].id)
-        if (tabs[i].id == "monday") {
-            var main = $(".monday").val();
-            console.log("Monday Meal: " + main)
-        }
-    }
-});
+// $("#save-week").on("click", function () {
+//     var tabs = $("#tabs-swipe-demo li");
+//     //iterate through the tabs 
+//     for (var i = 0; i < tabs.length; i++) {
+//         console.log("-----------------------")
+//         console.log("Day:" + tabs[i].id)
+//         if (tabs[i].id == "monday") {
 
+//             var nodes = $('.monday').childNodes;
+//             for (var i = 0; i < nodes.length; i++) {
+//                 if (nodes[i].nodeName.toLowerCase() == 'div') {
+//                     nodes[i].val() = id;
+//                     console.log(nodes)
+//                 }
+//             }
 
-
+// var main = $("#dropit1");
+// var mondayDiv = $(".monday").val()
+// var testentireWeek = $(".monday").parents(".monday").children("#dropit1").val();
+// var testingWeek = $(".monday").closest("#dropit1").find('[id*="#dropit1"]').first().attr("id")
+// console.log("-----------------------")
+// console.log("Entire Week:" + testentireWeek)
+// console.log("testingWeek:" + testingWeek)
+// console.log("Drop It Value: " + JSON.stringify(main));
+// console.log("Monday Div: " + mondayDiv);
+// console.log("/////////////////////////")
+//         }
+//     }
+// });
 
