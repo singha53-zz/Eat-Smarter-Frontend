@@ -30,8 +30,8 @@ function searchRecipes() {
     var tempKey = config.MY_KEY;
     var appID = config.SECRET_KEY;
     var searchAllergy = "&allowedAllergy[]=" + allergyInput;
-    //var url = 'https://young-island-66909.herokuapp.com/api/getRecipes'
-    var url = "http://localhost:3000/api/getRecipes";
+    var url = 'https://young-island-66909.herokuapp.com/api/getRecipes';
+    // var url = "http://localhost:3000/api/getRecipes";
     // /getRecipes
     $.get(url, { q: mealInput }, function (response) {
         console.log(response);

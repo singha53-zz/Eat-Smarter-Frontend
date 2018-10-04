@@ -407,26 +407,24 @@
     }
 
     function drag(recipe) {
+
       console.log("Recipe Id:" + recipe.target.id);
 
-      //var url = 'https://young-island-66909.herokuapp.com/api/saveDailyMealPlan'
-      var url = "http://localhost:3000/api/saveDailyMealPlan";
+      var weekday = $("#tabs-swipe-demo li").find("a").html()
+      var url = 'https://young-island-66909.herokuapp.com/api/saveDailyMealPlan'
+      // var url = "http://localhost:3000/api/saveDailyMealPlan";
       $.post(url, {
-        dayOfTheWeek: "Monday",
-        meal: recipe.toElement.id,
-        recipeId: recipe.target.id
+        dayOfTheWeek: weekday,
+        meal: "",
+        recipeId: recipe.target.id,
       }, success => {
         console.log(success)
       })
 
       recipe.dataTransfer.setData("text", recipe.target.id);
       recipe.dataTransfer.effectAllowed = "move";
-      if (draggable = "true") {
-        $("#drag1").addClass('dragging')
-      }
 
     }
-
     function drop(recipe) {
       recipe.preventDefault();
       //meal type
@@ -443,17 +441,6 @@
       recipe.target.appendChild(document.getElementById(data));
 
     }
-
-    // var request = require("request");
-
-
-    // request.get(
-    //   "https://api.yummly.com/v1/api/recipe/?_app_id=6fe80130&_app_key=e47479bfbd3e29b4ddd5ceb95d60916f",
-    //   { json: true },
-    //   (err, response, body) => {
-    //     return result;
-
-    //   });
 
 
 
