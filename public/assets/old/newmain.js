@@ -1,33 +1,26 @@
-
 //MAIN FUNCTIONS ON PAGE
 //------------------------------
-//Select multiple allergies 
+//Select multiple allergies
 $(document).ready(function () {
-    $('select').formSelect();
-    //Tabs 
-    $('.tabs').tabs();
+    $("select").formSelect();
+    //Tabs
+    $(".tabs").tabs();
 });
-
 
 //ENTER DISH
 //------------------------------
-// Store input value 
+// Store input value
+//SELECT RECIPES
+//------------------------------
+//Store selected value
 $("#submit").on("click", function () {
     var mealInput = $("#meal").val();
     console.log(mealInput);
+    $("#recipeList").html("");
+    searchRecipes();
 });
 
-//SELECT RECIPES
-//------------------------------
-//Store selected value 
-$("#submit").on("click", function () {
-    $('#recipeList').html('');
-    searchRecipes();
-})
-
-
-
-//DISPLAY RECIPES FROM YUMMILY 
+//DISPLAY RECIPES FROM YUMMILY
 //------------------------------
 //Console.log result
 function searchRecipes() {
@@ -37,32 +30,42 @@ function searchRecipes() {
     var tempKey = config.MY_KEY;
     var appID = config.SECRET_KEY;
     var searchAllergy = "&allowedAllergy[]=" + allergyInput;
-
-
-    $.get("http://api.yummly.com/v1/api/recipes?_app_id=" + appID + tempKey + mealSearch + searchAllergy, function (response) {
+    //var url = 'https://young-island-66909.herokuapp.com/api/getRecipes'
+    var url = "http://localhost:3000/api/getRecipes";
+    // /getRecipes
+    $.get(url, { q: mealInput }, function (response) {
         console.log(response);
-        //saving data in array 
+        //saving data in array
         var matches = response["matches"];
         for (var i = 0; i < matches.length; i++) {
             var recipeResult = matches[i];
-            console.log(recipeResult)
+            console.log(recipeResult);
 
             //recipe details
             var recipeName = recipeResult["sourceDisplayName"];
             var recipeID = recipeResult["id"];
             var recipeImage = recipeResult["smallImageUrls"];
             var recipeIngredients = recipeResult["ingredients"];
-
             //testing results
-            console.log("Name:" + recipeName + " || " + "ID: " + recipeID + " || " + "Image: " + recipeImage + " || " + "Ingredients: " + recipeIngredients);
+            console.log(
+                "Name:" +
+                recipeName +
+                " || " +
+                "ID: " +
+                recipeID +
+                " || " +
+                "Image: " +
+                recipeImage +
+                " || " +
+                "Ingredients: " +
+                recipeIngredients
+            );
 
-
-
-            //Appending to HTML 
-            var recipeDiv = $("<div>")
+            //Appending to HTML
+            var recipeDiv = $("<div>");
             recipeDiv.addClass("card horizontal");
             recipeDiv.html(`
-            <div class="card-stacked">
+            <div class="card-stacked" >
             <div class="card" id=${recipeID} draggable="true" ondragstart="drag(event)">
             <div class="card-image waves-effect waves-block waves-light recipe-info">
             <img class="activator recipeurl" id=${recipeID} src=${recipeImage}

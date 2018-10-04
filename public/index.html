@@ -408,6 +408,17 @@
 
     function drag(recipe) {
       console.log("Recipe Id:" + recipe.target.id);
+
+      //var url = 'https://young-island-66909.herokuapp.com/api/saveDailyMealPlan'
+      var url = "http://localhost:3000/api/saveDailyMealPlan";
+      $.post(url, {
+        dayOfTheWeek: "Monday",
+        meal: recipe.toElement.id,
+        recipeId: recipe.target.id
+      }, success => {
+        console.log(success)
+      })
+
       recipe.dataTransfer.setData("text", recipe.target.id);
       recipe.dataTransfer.effectAllowed = "move";
       if (draggable = "true") {
@@ -478,7 +489,7 @@
 
   <!-- app JS code -->
   <script type='text/javascript' src='assets/old/config.js'></script>
-  <script type="module" src="assets/old/newmain.js"></script>
+  <script type="text/javascript" src="assets/old/newmain.js"></script>
   <!-- app JS code -->
   <!-- <script src="assets/javascript/registerapp.js"></script> -->
   <!-- app JS code -->
