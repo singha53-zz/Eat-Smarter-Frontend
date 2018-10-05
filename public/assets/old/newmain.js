@@ -36,9 +36,10 @@ function searchRecipes() {
     $.get(url, { q: mealInput }, function (response) {
         console.log(response);
         //saving data in array
-        var matches = response["matches"];
-        for (var i = 0; i < matches.length; i++) {
-            var recipeResult = matches[i];
+
+        // var matches = response["matches"];
+        for (var i = 0; i < response.length; i++) {
+            var recipeResult = response[i];
             console.log(recipeResult);
 
             //recipe details
@@ -88,8 +89,8 @@ function searchRecipes() {
 
             //Open Recipe 
             $(".recipeurl").on("click", function () {
-                // var openURL = recipeResult.sourceRecipeUrl
-                // console.log("URL:" + openURL)
+                var openURL = recipeResult.sourceRecipeUrl
+                console.log("URL:" + openURL)
             })
 
         }
