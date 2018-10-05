@@ -2,7 +2,7 @@ var database = firebase.database();
 
 //LOGGING IN
 //---------------------------------------
-$('#log-in').on('click', function() {
+$('#log-in').on('click', function () {
   event.preventDefault();
 
   var userEmail = $('#user-email')
@@ -28,11 +28,11 @@ $('#log-in').on('click', function() {
 
   auth
     .signInWithEmailAndPassword(userEmail, userPass)
-    .then(function(user) {
+    .then(function (user) {
       alert('YOUR ARE LOGGED IN ' + user.email);
       window.location.href = 'profile.html';
     })
-    .catch(function(error) {
+    .catch(function (error) {
       console.log(error.code);
       alert('Error: ' + error.code);
       console.log(error.message);
@@ -47,7 +47,7 @@ function isUserSignedIn() {
 
 //CHECK STATUS
 //---------------------------------------
-firebase.auth().onAuthStateChanged(function(user) {
+firebase.auth().onAuthStateChanged(function (user) {
   console.log('user:', user);
 
   if (user != null) {
@@ -65,11 +65,11 @@ firebase.auth().onAuthStateChanged(function(user) {
 
     // Save recipe data to favs
     var selectedRecipe = {};
-    selectRef.on('value', function(snapshot) {
+    selectRef.on('value', function (snapshot) {
       selectedRecipe = snapshot.val();
     });
 
-    favRef.on('value', function(snapshot) {
+    favRef.on('value', function (snapshot) {
       $('#dropdown1, #dropdown2').empty();
 
       var favRecipes = snapshot.val();
@@ -79,7 +79,7 @@ firebase.auth().onAuthStateChanged(function(user) {
           var listFavs = $('<li>');
           listFavs.html(
             `<a id=${favRecipes[i].id} class="recipe"> <img src=${
-              favRecipes[i].images[0].hostedSmallUrl
+            favRecipes[i].images[0].hostedSmallUrl
             }> ${favRecipes[i].id}</a>`
           );
           $('#dropdown1, #dropdown2').append(listFavs);
@@ -87,10 +87,10 @@ firebase.auth().onAuthStateChanged(function(user) {
       }
     });
 
-    $(document).on('click', '.fav', function(event) {
-        $("#like").removeAttr("href")
+    $(document).on('click', '.fav', function (event) {
+      $("#like").removeAttr("href")
 
-      favRef.once('value', function(snapshot) {
+      favRef.once('value', function (snapshot) {
         var favRecipes = snapshot.val();
         if (favRecipes === null) {
           // favRecipes = [];
@@ -117,8 +117,8 @@ firebase.auth().onAuthStateChanged(function(user) {
   } else {
     $('#sign-out').addClass('hidden');
 
-    $(document).on('click', '.fav', function(event) {
-    $("#like").attr("href", "#popup1")
+    $(document).on('click', '.fav', function (event) {
+      $("#like").attr("href", "#popup1")
     })
   }
 });

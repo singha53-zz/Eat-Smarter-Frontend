@@ -23,6 +23,7 @@ app.set("view engine", "handlebars");
 // Routes
 require("./routes/htmlRoutes")(app);
 
+
 // Starting the server ------------------------------------/
 app.listen(PORT, function () {
   console.log(
