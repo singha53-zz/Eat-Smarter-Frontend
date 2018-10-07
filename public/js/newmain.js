@@ -1,5 +1,69 @@
 //MAIN FUNCTIONS ON PAGE
 //------------------------------
+
+
+
+//DRAG FEATURE 
+//------------------------------
+//Allow user to drag recipe into day of week 
+
+function allowDrop(recipe) {
+    recipe.preventDefault();
+
+}
+
+var recipeId = ""
+function drag(recipe) {
+
+    console.log("Recipe Id:" + recipe.target.id);
+    var recipeID = recipe.target.id;
+    recipeId = recipeID
+
+    recipe.dataTransfer.setData("text", recipe.target.id);
+    recipe.dataTransfer.effectAllowed = "move";
+
+}
+
+
+function drop(recipe) {
+    recipe.preventDefault();
+    //meal type
+    var meal = recipe.toElement.id
+    console.log("Meal:" + meal);
+
+    //active tab 
+    $("#tabs-swipe-demo li").click(function () {
+        if (!$(this).hasClass("active")) {
+            $("#tabs-swipe-demo li.active").removeClass("active")
+            $(this).addClass("active")
+            console.log("Weekday:" + $(this).find("a").html())
+        }
+    })
+    var recipeID = $("")
+    var dayOfTheWeek = $("#tabs-swipe-demo li").find("a").html()
+    // var url = '/api/saveDailyMealPlan'
+    var url = 'https://young-island-66909.herokuapp.com/api/saveDailyMealPlan'
+    // var url = "http://localhost:4000/api/saveDailyMealPlan";
+    $.post(url, {
+        dayOfTheWeek: dayOfTheWeek,
+        meal: meal,
+        recipeId: recipeId,
+    }, success => {
+        console.log(success)
+    }).catch(err => {
+        console.log(err)
+    })
+
+    var data = recipe.dataTransfer.getData("text");
+    recipe.target.appendChild(document.getElementById(data));
+
+}
+
+
+
+
+
+
 //Select multiple allergies
 $(document).ready(function () {
     $("select").formSelect();

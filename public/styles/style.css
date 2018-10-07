@@ -8,6 +8,29 @@ html {
   visibility: hidden;
 }
 
+.weekday{
+  width: 100%;
+  height: 100%;
+  padding: 3%;
+  background-color: white;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  border-radius: 5%;
+
+}
+
+ #trashcan {
+  content: url('https://cdn1.iconfinder.com/data/icons/Vista-Inspirate_1.0/128x128/filesystems/trashcan_full.png');
+  width: 200px;
+  height: 200px;
+}
+
+#trashcan:hover {
+  content: url('https://cdn1.iconfinder.com/data/icons/nuove/128x128/filesystems/trashcan_empty.png');
+}
+
+
+
 nav .brand-logo {
   position: absolute;
   color: #fff;
