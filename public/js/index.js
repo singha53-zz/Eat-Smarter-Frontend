@@ -167,3 +167,5 @@ $recipeButton.on("click", handleRecipeButton);
   onclick="window.open('http://www.website.com/page')"
 />; */
 }
+
+module.exports = API;

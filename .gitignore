@@ -2,5 +2,6 @@
 node_modules
 npm-debug.log
 .env
-
+public/js/credentials.json
+public/js/token.json
 public/assets/old/config.js
