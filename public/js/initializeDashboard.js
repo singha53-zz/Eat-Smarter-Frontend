@@ -51,7 +51,8 @@ var nutrientData=[
     ];
 console.log(data)
 data.forEach(d => {
-  d.nutritionEstimates = JSON.parse(d.nutritionEstimates)
+  console.log(d)
+  d.nutritionEstimates = JSON.parse(d.nutrientData)
  if(d.nutritionEstimates !== null){
   for (let i = 0; i < nutrientData.length; i++) {
   nutrientData[i].freq[d.recipeID] =  d.nutritionEstimates[i].freq[d.recipeID]/d.feeds

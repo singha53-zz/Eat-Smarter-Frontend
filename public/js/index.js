@@ -41,10 +41,11 @@ var API = {
 
 // delete chip on click
   $(document).on('click', '.close', function(event) {
+    counter = 0;
     console.log($(this).parent().remove())
    console.log($(this).parent()[0].id)
    API.deleteRecipe($(this).parent()[0].id)
-       window.location.reload()
+      //  window.location.reload()
    window.getRecipes()
 
   })
@@ -252,7 +253,6 @@ $("#getRecipe").attr("href",  recipeObj.recipeUrl)
 //  save data to window
  window.recipeInfo = recipeObj
 
-
   }).catch(err => {
     console.log(err)
   })
@@ -345,7 +345,7 @@ console.log(nutritionEstimates)
   return d.attribute === nutrientData[i].State
   })[0].value
   }
-  addRecipe.nutritionEstimates = JSON.stringify(nutrientData);
+  addRecipe.nutrientData = JSON.stringify(nutrientData);
   $('#piechart').empty();
   dashboard('#piechart', nutrientData); 
 }
@@ -380,6 +380,19 @@ console.log(addRecipe)
 // }
 //   })
   }
+// update energy content
+// $("#power-gauge").empty();
+// // console.log(nutrientData[0].freq)
+// if(nutrientData[0].freq !== undefined){
+//   console.log(nutrientData[0].freq)
+//   energy += 500
+// } else {
+//   energy = 0
+// }
+// console.log(energy)
+// onDocumentReady(energy);
+
+
   counter++
 
 })

@@ -37,6 +37,10 @@ module.exports = function(sequelize, Sequelize) {
             type: Sequelize.TEXT,
             notEmpty: true
         },
+        nutrientData: {
+            type: Sequelize.TEXT,
+            notEmpty: true
+        },
         calendar: {
             type: Sequelize.TEXT,
             notEmpty: true
