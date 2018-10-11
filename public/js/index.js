@@ -1,4 +1,9 @@
 $(document).ready(function() {
+// nutriential requirements
+var value = 0;
+onDocumentReady(value);
+
+
 var counter = 0;
 
   // Materlize functionality
