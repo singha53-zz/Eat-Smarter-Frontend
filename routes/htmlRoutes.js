@@ -16,9 +16,6 @@ module.exports = function(app, passport) {
   app.get('/login', function(req, res) {
     res.render('login'); // need login.hbs
   });
-  app.get('/login', function(req, res) {
-    res.render('login'); // need login.hbs
-  });
 
   app.post(
     '/signup',
@@ -26,6 +23,14 @@ module.exports = function(app, passport) {
       successRedirect: '/',
       failureRedirect: '/signup'
     }) // change successredirect
+  );
+
+  app.post(
+    '/login',
+    passport.authenticate('local-signin', {
+      successRedirect: '/auth',
+      failureRedirect: '/signin'
+    })
   );
 
   // Render 404 page for any unmatched routes
