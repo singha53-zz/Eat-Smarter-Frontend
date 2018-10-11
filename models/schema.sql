@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS yummlydb;
+CREATE DATABASE yummlydb;

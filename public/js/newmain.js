@@ -36,11 +36,12 @@ function searchRecipes() {
     var searchAllergy = "&allowedAllergy[]=" + allergyInput;
     var url = 'https://young-island-66909.herokuapp.com/api/getRecipes';
     // var url = "http://localhost:3000/api/getRecipes";
+
     // /getRecipes
     $.get(url, { q: mealInput }, function (response) {
         console.log(response);
-        //saving data in array
 
+        //saving data in array
         // var matches = response["matches"];
         for (var i = 0; i < response.length; i++) {
             var recipeResult = response[i];
