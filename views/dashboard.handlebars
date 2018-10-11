@@ -1,0 +1,180 @@
+  <div class="container">
+  <button><a href="/logout">Logout</a></button>
+  <button><a href="/fav">Favourites</a></button>
+    <div class="row">
+      <div class="col s3">
+
+        <div id="recipeList" style="padding-top: 1rem; overflow: auto;max-height: 90vh;">
+
+<div class="card horizontal">
+      <div class="card-stacked">
+        <div class="card-content">
+            <img id="Awesome-Pepperoni-Pizza-1873784" src="https://lh3.googleusercontent.com/UfzLfk9ugfdHhepQcvY30yBVA-070xMFYM-e72JZXdN2e2bP827PHte_9FatjPYqQl8-GO2wSFu0GkFtchoqocM=s90">
+            <br>
+            <a id="Awesome-Pepperoni-Pizza-1873784" class="recipe">Awesome Pepperoni Pizza</a>
+        </div>
+      </div></div><div class="card horizontal">
+      <div class="card-stacked">
+        <div class="card-content">
+            <img id="English-Muffin-Pizza-1689744" src="https://lh3.googleusercontent.com/Lw_cTLvUHjjTT6wbQ0Rz6EIRBPf-N6oq92NwSNbfikqxo_uqSnc4xHhpBSY4wrANWAgiaKIzaSkLWrN9kLaQ=s90">
+            <br>
+            <a id="English-Muffin-Pizza-1689744" class="recipe">English Muffin Pizza</a>
+        </div>
+      </div></div><div class="card horizontal">
+      <div class="card-stacked">
+        <div class="card-content">
+            <img id="Breakfast-Pizza-2213050" src="https://lh3.googleusercontent.com/UaCAo4pUqP-PnXbstVFF3rdYFoFIM8rH41BZYFVRialL52j0QCJQkq-aGXS7BOdy7LNFOpRRNiEZecViUxHurQ=s90">
+            <br>
+            <a id="Breakfast-Pizza-2213050" class="recipe">Breakfast Pizza</a>
+        </div>
+      </div></div><div class="card horizontal">
+      <div class="card-stacked">
+        <div class="card-content">
+            <img id="Bubble-Pizza-2082798" src="https://lh3.googleusercontent.com/ntVoOUdGG4E6EO-DfchGf57Ke4ZM0MAd-2stvNBHQLwoEky6fyl485ZQFn1EcWcNpluXabNyFPpdbdmUcD2-3Us=s90">
+            <br>
+            <a id="Bubble-Pizza-2082798" class="recipe">Bubble Pizza</a>
+        </div>
+      </div></div>
+      
+</div>
+      </div>
+
+      <div class="col s6">
+        <!-- enter dish -->
+        <div class="input-field">
+          <i class="material-icons prefix">mode_edit</i>
+          <textarea id="meal" class="materialize-textarea"></textarea>
+          <label for="meal">Enter dish: </label>
+        </div>
+
+        <!-- select allergies -->
+        <div class="input-field">
+          <select multiple id="allergy">
+            <option value="" disabled selected>Choose your allergy</option>
+            <option value="393^Gluten-Free">Gluten Free</option>
+            <option value="394^Peanut-Free">Peanut Free</option>
+            <option value="398^Seafood-Free">Seafood Free</option>
+            <option value="399^Sesame-Free">Sesame Free</option>
+            <option value="400^Soy-Free">Soy Free</option>
+            <option value="396^Dairy-Free">Dairy Free</option>
+            <option value="397^Egg-Free">Egg Free</option>
+            <option value="401^Sulfite-Free">Sulfite Free</option>
+            <option value="395^Tree Nut-Free">Tree Nut-Free</option>
+            <option value="392^Wheat-Free">Wheat-Free</option>
+          </select>
+          <label>Allergies?</label>
+        </div>
+
+        <!-- Search recipe -->
+        <button class="btn waves-effect waves-light" type="submit" name="action" id="submit">Search
+          <i class="material-icons right">send</i>
+        </button> 
+
+        
+<div class="row">
+<h4 id="recipeName" style="text-align:center;"> Awesome Pepperoni Pizza </h4>
+<div class="col s9">
+    <div id = "selectRecipe">
+    
+    <div class="row">
+ 
+          <div id="Awesome Pepperoni Pizza" class="col s6">
+          <img "materialboxed"="" src="https://lh3.googleusercontent.com/UfzLfk9ugfdHhepQcvY30yBVA-070xMFYM-e72JZXdN2e2bP827PHte_9FatjPYqQl8-GO2wSFu0GkFtchoqocM=s180">
+          </div>
+          <div class="col s6">
+          <div class="row">
+<div id="recipeTime" class="col s12">Time: 45 min</div>
+<div id="recipeFeeds" class="col s12">Feeds: 4</div>
+<div id="recipeIngredients" class="col s12">Ingredients: 8</div>
+<div id="recipeServes" class="col s12">Calories: 655.87</div>
+          </div>
+          </div>
+          <div id="recipeServes" class="col s12">Nutritional information is available</div>
+        </div>
+
+    </div>
+</div>
+<div class="col s3">
+<hr>
+<a id = "fav" class="waves-effect waves-light btn"><i class="material-icons">thumb_up</i></a>
+<hr>
+<a id="getRecipe" class="waves-effect waves-light btn"><i class="material-icons">launch</i></a>
+<hr>
+  <!-- Dropdown Trigger -->
+  <a class='dropdown-trigger btn' href='#' data-target='dropdown5'><i class="material-icons">add_circle_outline</i></a>
+
+  <!-- Dropdown Structure -->
+  <ul id='dropdown5' class='dropdown-content'>
+    <li><a class="add" id="breakfast" href="#!">Breakfast</a></li>
+    <li><a class="add" id="lunch" href="#!">Lunch</a></li>
+    <li><a class="add" id="dinner" href="#!">Dinner</a></li>
+    <li><a class="add" id="snacks" href="#!">Snacks</a></li>
+  </ul>
+
+
+  
+</div>
+ </div>
+
+
+<ul id="tabs-swipe-demo" class="tabs col-center-block">
+    <li class="tab col s1"><a id="sunday" class="active" href="#sun">S</a></li>
+    <li class="tab col s1"><a id="monday" href="#mon">M</a></li>
+    <li class="tab col s1"><a id="tuesday" href="#tues">T</a></li>
+    <li class="tab col s1"><a id="wednesday" href="#wednes">W</a></li>
+    <li class="tab col s1"><a id="thursday" href="#thurs">T</a></li>
+    <li class="tab col s1"><a id="friday" href="#fri">F</a></li>
+    <li class="tab col s1"><a id="saturday" href="#satur">S</a></li>
+  </ul>
+
+  <div id="sun" class="col s12">
+    <!-- Default with no input (automatically generated)  -->
+  <div id="sunday-breakfast" class="chips chips-placeholder">
+  </div>
+  <div id="sunday-lunch" class="chips chips-placeholder"></div>
+  <div id="sunday-dinner" class="chips chips-placeholder"></div>
+  </div>
+  <div id="mon" class="col s12">
+    <div id="monday-breakfast" class="chips chips-placeholder"></div>
+  <div id="monday-lunch" class="chips chips-placeholder"></div>
+  <div id="monday-dinner" class="chips chips-placeholder"></div>
+  </div>
+  <div id="tues" class="col s12">
+    <div id="tuesday-breakfast" class="chips chips-placeholder"></div>
+  <div id="tuesday-lunch" class="chips chips-placeholder"></div>
+  <div id="tuesday-dinner" class="chips chips-placeholder"></div>
+  </div>
+  <div id="wednes" class="col s12">
+    <div id="wednesday-breakfast" class="chips chips-placeholder"></div>
+  <div id="wednesday-lunch" class="chips chips-placeholder"></div>
+  <div id="wednesday-dinner" class="chips chips-placeholder"></div>
+  </div>
+  <div id="thurs" class="col s12">
+    <div id="thursday-breakfast" class="chips chips-placeholder"></div>
+  <div id="thursday-lunch" class="chips chips-placeholder"></div>
+  <div id="thursday-dinner" class="chips chips-placeholder"></div>
+  </div>
+  <div id="fri" class="col s12">
+    <div id="friday-breakfast" class="chips chips-placeholder"></div>
+  <div id="friday-lunch" class="chips chips-placeholder"></div>
+  <div id="friday-dinner" class="chips chips-placeholder"></div>
+  </div>
+  <div id="satur" class="col s12">
+    <div id="saturday-breakfast" class="chips chips-placeholder"></div>
+  <div id="saturday-lunch" class="chips chips-placeholder"></div>
+  <div id="saturday-dinner" class="chips chips-placeholder"></div>
+  </div>
+       </div>
+      
+      <div class="col s3">
+<div id="piechart"> </div>
+      </div>
+    </div>
+  </div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+ <script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="/js/initializeDashboard.js"></script>
+<script src="/js/index.js"></script>
+<script src="/js/fav.js"></script>
