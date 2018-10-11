@@ -8,7 +8,9 @@
     </a>
     <ul class="right hide-on-med-and-down">
       <li>
-        <a href="sass.html">How it works</a>
+        <a class="modal-trigger" href="#modal1">How It Works</a>
+
+        {{!-- <a href="sass.html">How it works</a> --}}
       </li>
       <li>
         {{!-- <a class="dropdown-trigger" href="#!" data-target="dropdown1">Favourites
@@ -16,9 +18,9 @@
         </a> --}}
       </li>
       <li class="register">
-        <a href="registerindex.html">Register</a>
+        <a class="modal-trigger" href="#modal2">Register</a>
       </li>
-      <li class="sign-in-email">
+      <li class=" sign-in-email hide">
         <a href="signin.html">Log In</a>
       </li>
       <li class="hidden profile-page">
@@ -28,11 +30,13 @@
         <a href="index.html">Log Out</a>
       </li>
       <li>
-        <a id="sign-in" class="waves-effect waves-light btn-small">
-          <i class="material-icons left"></i>Sign-in with Google</a>
+        <a id="sign-in" class="waves-effect waves-light btn-small modal-trigger" href="#modal3">
+
+          <i class="
+          material-icons left"></i>SIGN-IN</a>
       </li>
       <li>
-        <a id="sign-out" class="waves-effect waves-light btn-small">
+        <a id="sign-out" class="waves-effect waves-light btn-small hide">
           <i class="material-icons left"></i>Sign-out</a>
       </li>
     </ul>
@@ -55,7 +59,9 @@
 
 <ul class="sidenav" id="mobile-demo">
   <li>
-    <a href="sass.html">How it works</a>
+    {{!-- <a href="sass.html">How it works</a> --}}
+    <!-- Modal Trigger -->
+
   </li>
   <li>
     {{!-- <a class="dropdown-trigger" href="#!" data-target="dropdown2">Favourites
@@ -100,6 +106,40 @@
   </li>
 </ul>
 
+<!-- Modal Structure for How it works-->
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <h4 class="howitworks">HOW IT WORKS</h4>
+    <p>EatSmarter offers users an easy way to search,save and share their favourite recipes!</p>
+    <p>Customize the recipe search by selecting allergies and key words to find the perfect one</p>
+    <p>Drag and Drop the Recipes to the day of the week</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Ok</a>
+  </div>
+</div>
+
+<!-- Modal Structure for REGISTER-->
+<div id="modal2" class="modal">
+  <div class="modal-content">
+    <h4>CREATE A PROFILE</h4>
+    <p>Insert Form Here</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Register</a>
+  </div>
+</div>
+
+<!-- Modal Structure for LOGIN-->
+<div id="modal3" class="modal">
+  <div class="modal-content">
+    <h4>LOGIN</h4>
+    <p>A bunch of text</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Login</a>
+  </div>
+</div>
 
 <!-- MAIN -->
 <div class="container">
@@ -149,7 +189,7 @@
           <option value="395^Tree Nut-Free">Tree Nut-Free</option>
           <option value="392^Wheat-Free">Wheat-Free</option>
         </select>
-        <label>Allergies?</label>
+        <label></label>
       </div>
 
 
