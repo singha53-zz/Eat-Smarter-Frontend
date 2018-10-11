@@ -316,6 +316,7 @@ console.log(addRecipe)
   // add chips to calendar
   var ref_this = $("ul.tabs li a.active");
   console.log(`${ref_this[0].id}-${event.target.id}`)
+  // addRecipe.day = `${ref_this[0].id}`;
   addRecipe.calendar = `${ref_this[0].id}-${event.target.id}`;
 
 
