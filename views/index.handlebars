@@ -1,104 +1,4 @@
-<nav>
-  <!-- Navigation Bar -->
-  <div class="nav-wrapper">
-    <img src="assets/Images/EatSmart-logo1.jpg" alt="logo" class="brand-logo" height="56">
-    <!-- <a href="#!" class="brand-logo">EatSmart</a> -->
-    <a href="#" data-target="mobile-demo" class="sidenav-trigger">
-      <i class="material-icons">menu</i>
-    </a>
-    <ul class="right hide-on-med-and-down">
-      <li>
-        <a href="sass.html">How it works</a>
-      </li>
-      <li>
-        <a class="dropdown-trigger" href="#!" data-target="dropdown1">Favourites
-          <i class="material-icons right">arrow_drop_down</i>
-        </a>
-      </li>
-      <li class="register">
-        <a href="registerindex.html">Register</a>
-      </li>
-      <li class="sign-in-email">
-        <a href="signin.html">Log In</a>
-      </li>
-      <li class="hidden profile-page">
-        <a href="profile.html">Profile</a>
-      </li>
-      <li class="hidden log-out">
-        <a href="index.html">Log Out</a>
-      </li>
-      <li>
-        <a id="sign-in" class="waves-effect waves-light btn-small">
-          <i class="material-icons left">account_circle</i>Sign-in with Google</a>
-      </li>
-      <li>
-        <a id="sign-out" class="waves-effect waves-light btn-small">
-          <i class="material-icons left">exit_to_app</i>Sign-out</a>
-      </li>
-    </ul>
-  </div>
-</nav>
 
-<!-- Dropdown Structure for uncollapsed navbar -->
-<ul id="dropdown1" class="dropdown-content">
-  <li>
-    <a href="#!">one</a>
-  </li>
-  <li>
-    <a href="#!">two</a>
-  </li>
-  <li class="divider"></li>
-  <li>
-    <a href="#!">three</a>
-  </li>
-</ul>
-
-<ul class="sidenav" id="mobile-demo">
-  <li>
-    <a href="sass.html">How it works</a>
-  </li>
-  <li>
-    <a class="dropdown-trigger" href="#!" data-target="dropdown2">Favourites
-      <i class="material-icons right">arrow_drop_down</i>
-    </a>
-  </li>
-  <li class="register">
-    <a href="registerindex.html">Register</a>
-  </li>
-  <li class="sign-in-email">
-    <a href="signin.html">Log In</a>
-  </li>
-  <li class="hidden profile-page">
-    <a href="profile.html">Profile</a>
-  </li>
-  <li class="hidden log-out">
-    <a href="index.html">Log Out</a>
-  </li>
-  <li>
-    <a id="sign-in" class="btn waves-effect waves-light btn-small">
-      <i class="material-icons left">account_circle</i>
-      <h6>Sign-in with Google</h6>
-    </a>
-  </li>
-  <li>
-    <a id="sign-out" class="waves-effect waves-light btn-small">
-      <i class="material-icons left">exit_to_app</i>Sign-out</a>
-  </li>
-</ul>
-
-<!-- Dropdown Structure for collapsed navbar -->
-<ul id="dropdown2" class="dropdown-content">
-  <li>
-    <a href="#!">one</a>
-  </li>
-  <li>
-    <a href="#!">two</a>
-  </li>
-  <li class="divider"></li>
-  <li>
-    <a href="#!">three</a>
-  </li>
-</ul>
 
 
 <!-- MAIN -->
@@ -110,12 +10,12 @@
         overflow: auto;max-height: 120vh;">
         <div class="card" id="drag1" draggable="true" ondragstart="drag(event)">
           <div class="card-image waves-effect waves-block waves-light recipe-info">
-            <img class="activator" src="https://images.unsplash.com/photo-1538140177897-d71d1643349e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=058d4a817fafacf72008b4fe55a4f07f&auto=format&fit=crop&w=1352&q=80"
-              height="100%">
+            {{!-- <img class="activator" src="https://images.unsplash.com/photo-1538140177897-d71d1643349e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=058d4a817fafacf72008b4fe55a4f07f&auto=format&fit=crop&w=1352&q=80"
+              height="100%"> --}}
           </div>
-          <span class="card-title activator grey-text text-darken-4 center">BURGER
+          {{!-- <span class="card-title activator grey-text text-darken-4 center">BURGER
             <li class="btn-floating btn-medium waves-effect waves-light red lighten-3 material-icons right">add</i>
-          </span>
+          </span> --}}
 
         </div>
 
@@ -127,7 +27,7 @@
 
       <!-- enter dish -->
       <div class="input-field">
-        <i class="material-icons prefix">mode_edit</i>
+
         <textarea id="meal" class="materialize-textarea"></textarea>
         <label for="meal">Enter dish: </label>
       </div>
@@ -155,7 +55,7 @@
 
       <!-- Submit Search recipe -->
       <button class="btn waves-effect waves-light" type="submit" name="action" id="submit">Search
-        <i class="material-icons right">send</i>
+        {{!-- <i class="material-icons right"></i> --}}
       </button>
 
       <hr>
@@ -171,30 +71,30 @@
             <li id="saturday" class="tab col s1.5"><a href="#test-swipe-6">SAT</a></li>
             <li id="sunday" class="tab col s1.5"><a href="#test-swipe-7">SUN</a></li>
           </ul>
+
+
           <!-- Monday -->
           <div id="test-swipe-1" class="col s12 teal lighten-3">
             <div class="divider"></div>
             <div class="section">
-              <h5>BREAKFAST</h5>
+              <h5 id="breakfast">BREAKFAST</h5>
               <div id="breakfast" class="weekday dropit1" ondrop="drop(event)" ondragover="allowDrop(event)">
               </div>
-
             </div>
             <div class="divider"></div>
             <div class="section">
-              <h5>LUNCH</h5>
+              <h5 id="lunch">LUNCH</h5>
               <div id="lunch" class="weekday dropit1" ondrop="drop(event)" ondragover="allowDrop(event)">
               </div>
-
             </div>
             <div class="divider"></div>
             <div class="section">
-              <h5>DINNER</h5>
+              <h5 id="dinner">DINNER</h5>
               <div id="dinner" class="weekday dropit1" ondrop="drop(event)" ondragover="allowDrop(event)">
               </div>
-
             </div>
           </div>
+
           <!-- Tuesday -->
           <div id="test-swipe-2" class="col s12 red lighten-3">
             <div class="divider"></div>

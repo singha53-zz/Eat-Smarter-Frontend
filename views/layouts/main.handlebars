@@ -3,22 +3,126 @@
 
 <head>
   <meta charset="utf-8">
-  {{!--
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"> --}}
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
   <link rel="stylesheet" href="/styles/style.css" media="screen" title="no title" charset="utf-8">
+
+  <script src="/js/piechart.js"></script>
+
   <script src='/js/config.js'></script>
   <script src='/js/newmain.js'></script>
   <title>Home Page</title>
 </head>
 
 <body>
+
+<nav>
+  <!-- Navigation Bar -->
+  <div class="nav-wrapper">
+    <img src="assets/Images/EatSmart-logo1.jpg" alt="logo" class="brand-logo" height="56">
+    <!-- <a href="#!" class="brand-logo">EatSmart</a> -->
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+      <i class="material-icons">menu</i>
+    </a>
+    <ul class="right hide-on-med-and-down">
+      <li>
+        <a href="sass.html">How it works</a>
+      </li>
+      <li>
+        {{!-- <a class="dropdown-trigger" href="#!" data-target="dropdown1">Favourites
+          <i class="material-icons right">arrow_drop_down</i>
+        </a> --}}
+      </li>
+      <li class="signup">
+        <a href="/signup">Sign up</a>
+      </li>
+      <li class="signin">
+        <a href="/signin">Sign in</a>
+      </li>
+      <li class="hidden profile-page">
+        <a href="profile.html">Profile</a>
+      </li>
+      <li class="hidden log-out">
+        <a href="index.html">Log Out</a>
+      </li>
+      <li>
+        <a id="sign-in" class="waves-effect waves-light btn-small">
+          <i class="material-icons left"></i>Sign-in with Google</a>
+      </li>
+      <li>
+        <a id="sign-out" class="waves-effect waves-light btn-small">
+          <i class="material-icons left"></i>Sign-out</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Dropdown Structure for uncollapsed navbar -->
+<ul id="dropdown1" class="dropdown-content">
+  <li>
+    <a href="#!">one</a>
+  </li>
+  <li>
+    <a href="#!">two</a>
+  </li>
+  <li class="divider"></li>
+  <li>
+    <a href="#!">three</a>
+  </li>
+</ul>
+
+<ul class="sidenav" id="mobile-demo">
+  <li>
+    <a href="sass.html">How it works</a>
+  </li>
+  <li>
+    {{!-- <a class="dropdown-trigger" href="#!" data-target="dropdown2">Favourites
+      <i class="material-icons right">arrow_drop_down</i>
+    </a> --}}
+  </li>
+
+  <li class="register">
+    <a href="/signup">Sign up</a>
+  </li>
+  <li class="sign-in-email">
+    <a href="/signin">Sign in</a>
+  </li>
+  <li class="hidden profile-page">
+    <a href="profile.html">Profile</a>
+  </li>
+  <li class="hidden log-out">
+    <a href="index.html">Log Out</a>
+  </li>
+  <li>
+    <a id="sign-in" class="btn waves-effect waves-light btn-small">
+      <i class="material-icons left">account_circle</i>
+      <h6>Sign-in with Google</h6>
+    </a>
+  </li>
+  <li>
+    <a id="sign-out" class="waves-effect waves-light btn-small">
+      <i class="material-icons left"></i>Sign-out</a>
+  </li>
+</ul>
+
+<!-- Dropdown Structure for collapsed navbar -->
+<ul id="dropdown2" class="dropdown-content">
+  <li>
+    <a href="#!">one</a>
+  </li>
+  <li>
+    <a href="#!">two</a>
+  </li>
+  <li class="divider"></li>
+  <li>
+    <a href="#!">three</a>
+  </li>
+</ul>
+
   {{{body}}}
 </body>
 
