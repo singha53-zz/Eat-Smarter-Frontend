@@ -17,6 +17,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static("public"));
 
+//Passport
+app.use(session({ secret: 'taylorSwift lovesAli',resave: true, saveUninitialized:true}));
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Handlebars
 app.engine(
   "handlebars",
