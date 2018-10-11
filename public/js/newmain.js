@@ -136,7 +136,7 @@ function searchRecipes() {
             <img class="activator recipeurl" id=${recipeID} src=${recipeImage}
             height="100%">
                  </div>
-                 <span class="card-title activator grey-text text-darken-4 center">${recipeName}<i class="btn-floating btn-medium waves-effect waves-light red lighten-3 material-icons right">add</i></span>
+                 <span class="card-title activator grey-text text-darken-4 center">${recipeName}<i class="btn-floating btn-medium waves-effect waves-light red lighten-3 material-icons right"></i></span>
               </div>
             </div>`);
 

@@ -19,6 +19,11 @@ html {
 
 }
 
+.weekday:hover{
+  border: solid lightblue 5px;
+
+}
+
  #trashcan {
   content: url('https://cdn1.iconfinder.com/data/icons/Vista-Inspirate_1.0/128x128/filesystems/trashcan_full.png');
   width: 200px;
