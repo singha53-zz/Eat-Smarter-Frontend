@@ -387,7 +387,7 @@ function onDocumentReady(value) {
 		clipWidth: 200,
 		clipHeight: 200,
 		ringWidth: 60,
-		maxValue: 2500,
+		maxValue: 40,
 		transitionMs: 4000,
 	});
 	powerGauge.render();

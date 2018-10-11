@@ -72,7 +72,6 @@ app.get("/search/:recipe", function(req, res) {
     var recipe = req.body;
     recipe.userId = req.user.id
   db.addRecipe.create(recipe).then(function(result) {
-    console.log(result)
       res.json(result)
     }).catch(err =>{
       console.log(err)

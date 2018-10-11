@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
   // add initialize recipe to dashboard
   setRecipe();
 
@@ -29,6 +28,7 @@ $(document).ready(function() {
 
   function getRecipes(){
     $.get("/api/recipes", function(data) {
+      console.log(data)
       console.log(data.length)
 
       if(data.length !== 0){
@@ -63,6 +63,19 @@ console.log(nutrientData)
 window.nutrientData = nutrientData;
   $('#piechart').empty();
   dashboard('#piechart', nutrientData);
+
+// update gauges
+$("#power-gauge").empty();
+var energy = 0;
+for(var prop in nutrientData[2].freq){
+  energy += nutrientData[2].freq[prop]
+}
+console.log(energy)
+if(energy > 40){
+  alert('Are you serious? Lower your sugar intake!! You broke the scale!')
+}
+onDocumentReady(energy);
+
       } else{
         $('#piechart').empty();
         var nutrientData=[
@@ -73,6 +86,10 @@ window.nutrientData = nutrientData;
     ,{State:'CHOCDF',freq:{}}
     ];
     window.nutrientData = nutrientData;
+
+    $("#power-gauge").empty();
+    energy=0
+    onDocumentReady(energy);
       }
 
     });

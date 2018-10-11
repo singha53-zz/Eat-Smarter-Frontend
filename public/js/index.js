@@ -1,7 +1,5 @@
 $(document).ready(function() {
-// nutriential requirements
-var energy = 0;
-onDocumentReady(energy);
+
 
 
 var counter = 0;
@@ -49,7 +47,6 @@ var API = {
    window.getRecipes()
 
   })
-
 
   $('#sunday-breakfast').chips({placeholder: 'Breakfast',secondaryPlaceholder: '+Tag'});
   $('#sunday-lunch').chips({placeholder: 'Lunch',secondaryPlaceholder: '+Tag'});
@@ -345,21 +342,9 @@ console.log(nutritionEstimates)
   return d.attribute === nutrientData[i].State
   })[0].value
   }
-  addRecipe.nutrientData = JSON.stringify(nutrientData);
-  $('#piechart').empty();
-  dashboard('#piechart', nutrientData); 
+  // $('#piechart').empty();
+  // dashboard('#piechart', nutrientData); 
 }
-
-console.log(addRecipe)
-// post recipe to database
-  $.ajax({
-      headers: {
-        "Content-Type": "application/json"
-      },
-      type: "POST",
-      url: "api/recipes",
-      data: JSON.stringify(addRecipe)
-    })
 
 //   API.getRecipe(url).then(res => {
 //     console.log(res.nutritionEstimates.length)
@@ -379,20 +364,32 @@ console.log(addRecipe)
 //   addRecipe.nutrientData = null
 // }
 //   })
-  }
-// update energy content
+
+
+// addRecipe.nutrientData = nutrientData;
+// // update energy content
 // $("#power-gauge").empty();
-// // console.log(nutrientData[0].freq)
-// if(nutrientData[0].freq !== undefined){
-//   console.log(nutrientData[0].freq)
-//   energy += 500
-// } else {
-//   energy = 0
+// console.log(addRecipe.nutrientData)
+// console.log(addRecipe.nutrientData[0].freq)
+// for(var prop in addRecipe.nutrientData[0].freq){
+//   energy += addRecipe.nutrientData[0].freq[prop]/addRecipe.feeds
 // }
 // console.log(energy)
 // onDocumentReady(energy);
 
-
+addRecipe.nutrientData = JSON.stringify(nutrientData);
+// post recipe to database
+  $.ajax({
+      headers: {
+        "Content-Type": "application/json"
+      },
+      type: "POST",
+      url: "api/recipes",
+      data: JSON.stringify(addRecipe)
+    }).then(run =>{
+window.getRecipes()
+    })
+  }
   counter++
 
 })
