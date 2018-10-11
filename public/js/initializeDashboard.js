@@ -17,7 +17,7 @@ $(document).ready(function() {
   imageUrl:"https://lh3.googleusercontent.com/UfzLfk9ugfdHhepQcvY30yBVA-070xMFYM-e72JZXdN2e2bP827PHte_9FatjPYqQl8-GO2wSFu0GkFtchoqocM=s180",
   recipeUrl:"http://www.bigoven.com/recipe/awesome-pepperoni-pizza/165695",
   calories:  655.87,
-  nutritionEstimates: JSON.stringify([{"attribute":"FAT_KCAL","value":280},{"attribute":"PROCNT","value":30},{"attribute":"SUGAR","value":0.85},{"attribute":"WATER","value":127.6},{"attribute":"CHOCDF","value":61.69}]),
+  nutritionEstimates: JSON.stringify([{"attribute":"ENERGY_KCAL","value":280},{"attribute":"PROCNT","value":30},{"attribute":"SUGAR","value":0.85},{"attribute":"WATER","value":127.6},{"attribute":"CHOCDF","value":61.69}]),
   nutritionEstimatesAvail:`<div id="recipeServes" class="col s12">Nutritional information available</div>`
        }
      } else {
@@ -43,18 +43,18 @@ console.log(data)
 
 // update piechart
 var nutrientData=[
-    {State:'FAT_KCAL',freq:{}}
+    {State:'ENERGY_KCAL',freq:{}}
     ,{State:'PROCNT',freq:{}}
     ,{State:'SUGAR',freq:{}}
     ,{State:'WATER',freq:{}}
     ,{State:'CHOCDF',freq:{}}
     ];
-
+console.log(data)
 data.forEach(d => {
   d.nutritionEstimates = JSON.parse(d.nutritionEstimates)
  if(d.nutritionEstimates !== null){
   for (let i = 0; i < nutrientData.length; i++) {
-  nutrientData[i].freq[d.recipeID] =  d.nutritionEstimates[i].freq[d.recipeID]
+  nutrientData[i].freq[d.recipeID] =  d.nutritionEstimates[i].freq[d.recipeID]/d.feeds
   }
   }
 });
@@ -65,7 +65,7 @@ window.nutrientData = nutrientData;
       } else{
         $('#piechart').empty();
         var nutrientData=[
-    {State:'FAT_KCAL',freq:{}}
+    {State:'ENERGY_KCAL',freq:{}}
     ,{State:'PROCNT',freq:{}}
     ,{State:'SUGAR',freq:{}}
     ,{State:'WATER',freq:{}}
