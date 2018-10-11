@@ -27,8 +27,8 @@ $(document).ready(function() {
   }
 
   function getRecipes(){
-    var ref_this = $("ul.tabs li a.active");
-console.log(`${ref_this[0].id}`)
+//     var ref_this = $("ul.tabs li a.active");
+// console.log(`${ref_this[0].id}`)
 
     $.get("/api/recipes", function(data) {
       console.log(data)
