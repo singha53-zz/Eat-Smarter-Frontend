@@ -48,24 +48,31 @@ var API = {
   $('#sunday-breakfast').chips({placeholder: 'Breakfast',secondaryPlaceholder: '+Tag'});
   $('#sunday-lunch').chips({placeholder: 'Lunch',secondaryPlaceholder: '+Tag'});
   $('#sunday-dinner').chips({placeholder: 'Dinner',secondaryPlaceholder: '+Tag'});
+  $('#sunday-snacks').chips({placeholder: 'Snacks',secondaryPlaceholder: '+Tag'});
   $('#monday-breakfast').chips({placeholder: 'Breakfast',secondaryPlaceholder: '+Tag'});
   $('#monday-lunch').chips({placeholder: 'Lunch',secondaryPlaceholder: '+Tag'});
   $('#monday-dinner').chips({placeholder: 'Dinner',secondaryPlaceholder: '+Tag'});
+  $('#monday-snacks').chips({placeholder: 'Snacks',secondaryPlaceholder: '+Tag'});
   $('#tuesday-breakfast').chips({placeholder: 'Breakfast',secondaryPlaceholder: '+Tag'});
   $('#tuesday-lunch').chips({placeholder: 'Lunch',secondaryPlaceholder: '+Tag'});
   $('#tuesday-dinner').chips({placeholder: 'Dinner',secondaryPlaceholder: '+Tag'});
+  $('#tuesday-snacks').chips({placeholder: 'Snacks',secondaryPlaceholder: '+Tag'});
   $('#wednesday-breakfast').chips({placeholder: 'Breakfast',secondaryPlaceholder: '+Tag'});
   $('#wednesday-lunch').chips({placeholder: 'Lunch',secondaryPlaceholder: '+Tag'});
   $('#wednesday-dinner').chips({placeholder: 'Dinner',secondaryPlaceholder: '+Tag'});
+  $('#wednesday-snacks').chips({placeholder: 'Snacks',secondaryPlaceholder: '+Tag'});
   $('#thursday-breakfast').chips({placeholder: 'Breakfast',secondaryPlaceholder: '+Tag'});
   $('#thursday-lunch').chips({placeholder: 'Lunch',secondaryPlaceholder: '+Tag'});
   $('#thursday-dinner').chips({placeholder: 'Dinner',secondaryPlaceholder: '+Tag'});
+  $('#thursday-snacks').chips({placeholder: 'Snacks',secondaryPlaceholder: '+Tag'});
   $('#friday-breakfast').chips({placeholder: 'Breakfast',secondaryPlaceholder: '+Tag'});
   $('#friday-lunch').chips({placeholder: 'Lunch',secondaryPlaceholder: '+Tag'});
   $('#friday-dinner').chips({placeholder: 'Dinner',secondaryPlaceholder: '+Tag'});
+  $('#friday-snacks').chips({placeholder: 'Snacks',secondaryPlaceholder: '+Tag'});
   $('#saturday-breakfast').chips({placeholder: 'Breakfast',secondaryPlaceholder: '+Tag'});
   $('#saturday-lunch').chips({placeholder: 'Lunch',secondaryPlaceholder: '+Tag'});
   $('#saturday-dinner').chips({placeholder: 'Dinner',secondaryPlaceholder: '+Tag'});
+  $('#saturday-snacks').chips({placeholder: 'Snacks',secondaryPlaceholder: '+Tag'});
 
 // Get references to page elements
 var $meal = $("#meal");
