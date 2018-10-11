@@ -17,6 +17,19 @@ module.exports = function(app, passport) {
     res.render('login'); // need login.hbs
   });
 
+  app.get('/authenticated', isLoggedIn, function(req, res) {
+    // res.render('secureContent');
+    // res.redirect('/');
+    res.send('Logged in!');
+    // var goodUser = {
+    //   id: req.user.id,
+    //   firstname: req.user.firstname,
+    //   lastname: req.user.lastname,
+    //   email: req.user.email
+    // };
+    // res.json(goodUser);
+  });
+
   app.post(
     '/signup',
     passport.authenticate('local-signup', {
@@ -28,8 +41,8 @@ module.exports = function(app, passport) {
   app.post(
     '/login',
     passport.authenticate('local-signin', {
-      successRedirect: '/auth',
-      failureRedirect: '/signin'
+      successRedirect: '/',
+      failureRedirect: '/login'
     })
   );
 
@@ -43,4 +56,10 @@ module.exports = function(app, passport) {
   app.get('*', function(req, res) {
     res.render('404');
   });
+
+  function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated()) return next();
+
+    res.redirect('/signin');
+  }
 };
