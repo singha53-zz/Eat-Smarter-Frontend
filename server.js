@@ -32,7 +32,10 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Routes
-require("./routes/htmlRoutes")(app);
+require("./routes/htmlRoutes")(app, passport);
+
+//passport strategy
+require('./config/passport.js')(passport,db.user);
 
 
 // Starting the server ------------------------------------/
