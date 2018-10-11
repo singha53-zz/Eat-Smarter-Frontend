@@ -1,6 +1,6 @@
 /* eslint-disable */
 var request = require("request");
-var Meal = require("../models/meal");
+// var Meal = require("../models/meal");
 
 module.exports = function (app) {
 

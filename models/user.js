@@ -60,6 +60,14 @@ module.exports = function(sequelize, Sequelize) {
           allowNull: false
       }
     });
+    User.hasMany(models.addRecipe, {
+      onDelete: "cascade",
+      foreignKey: {
+          name: "userId",
+          allowNull: false
+      }
+    });
+
     };
  
     return User;
