@@ -17,7 +17,7 @@ $(document).ready(function() {
   imageUrl:"https://lh3.googleusercontent.com/UfzLfk9ugfdHhepQcvY30yBVA-070xMFYM-e72JZXdN2e2bP827PHte_9FatjPYqQl8-GO2wSFu0GkFtchoqocM=s180",
   recipeUrl:"http://www.bigoven.com/recipe/awesome-pepperoni-pizza/165695",
   calories:  655.87,
-  nutritionEstimates: JSON.stringify([{"attribute":"FAT_KCAL","value":280},{"attribute":"FASAT","value":13.73},{"attribute":"FOLDFE","value":269.02},{"attribute":"WATER","value":127.6},{"attribute":"FAMS","value":12.24},{"attribute":"FIBTG","value":2.75},{"attribute":"PROCNT","value":30},{"attribute":"CHOCDF","value":61.69},{"attribute":"CHOLE","value":0.08},{"attribute":"FAPU","value":1.84}]),
+  nutritionEstimates: JSON.stringify([{"attribute":"FAT_KCAL","value":280},{"attribute":"PROCNT","value":30},{"attribute":"SUGAR","value":0.85},{"attribute":"WATER","value":127.6},{"attribute":"CHOCDF","value":61.69}]),
   nutritionEstimatesAvail:`<div id="recipeServes" class="col s12">Nutritional information available</div>`
        }
      } else {
@@ -44,18 +44,10 @@ console.log(data)
 // update piechart
 var nutrientData=[
     {State:'FAT_KCAL',freq:{}}
-    ,{State:'FASAT',freq:{}}
-    ,{State:'FOLDFE',freq:{}}
-    // ,{State:'ENERC_KJ',freq:{}}
-    ,{State:'WATER',freq:{}}
-    ,{State:'FAMS',freq:{}}
-    ,{State:'FIBTG',freq:{}}
     ,{State:'PROCNT',freq:{}}
+    ,{State:'SUGAR',freq:{}}
+    ,{State:'WATER',freq:{}}
     ,{State:'CHOCDF',freq:{}}
-    ,{State:'CHOLE',freq:{}}
-    ,{State:'FAPU',freq:{}}
-    // ,{State:'VITA_IU',freq:{}}
-    // ,{State:'ENERC_KCAL',freq:{}}
     ];
 
 data.forEach(d => {
@@ -74,18 +66,10 @@ window.nutrientData = nutrientData;
         $('#piechart').empty();
         var nutrientData=[
     {State:'FAT_KCAL',freq:{}}
-    ,{State:'FASAT',freq:{}}
-    ,{State:'FOLDFE',freq:{}}
-    // ,{State:'ENERC_KJ',freq:{}}
-    ,{State:'WATER',freq:{}}
-    ,{State:'FAMS',freq:{}}
-    ,{State:'FIBTG',freq:{}}
     ,{State:'PROCNT',freq:{}}
+    ,{State:'SUGAR',freq:{}}
+    ,{State:'WATER',freq:{}}
     ,{State:'CHOCDF',freq:{}}
-    ,{State:'CHOLE',freq:{}}
-    ,{State:'FAPU',freq:{}}
-    // ,{State:'VITA_IU',freq:{}}
-    // ,{State:'ENERC_KCAL',freq:{}}
     ];
     window.nutrientData = nutrientData;
       }
