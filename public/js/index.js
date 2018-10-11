@@ -1,7 +1,7 @@
 $(document).ready(function() {
 // nutriential requirements
-var value = 0;
-onDocumentReady(value);
+var energy = 0;
+onDocumentReady(energy);
 
 
 var counter = 0;
@@ -246,8 +246,12 @@ $('#selectRecipe').empty();
         </div>
               `)
 
+// add recipe link  to upload button
+$("#getRecipe").attr("href",  recipeObj.recipeUrl)
+
 //  save data to window
  window.recipeInfo = recipeObj
+
 
   }).catch(err => {
     console.log(err)
@@ -381,7 +385,7 @@ console.log(addRecipe)
 })
 
 $(document).on('click', '#getRecipe', function(event) {
-$("#getRecipe").attr("href",  window.recipeInfo.sourceRecipeUrl)
+$("#getRecipe").attr("href",  window.recipeInfo.recipeUrl)
 })
 
 
