@@ -72,7 +72,7 @@ for(var prop in nutrientData[2].freq){
 }
 console.log(energy)
 if(energy > 40){
-  alert('Are you serious? Lower your sugar intake!! You broke the scale!')
+  alert('Are you serious? Please, lower your sugar intake!!')
 }
 onDocumentReady(energy);
 
