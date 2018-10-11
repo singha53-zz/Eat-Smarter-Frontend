@@ -16,6 +16,17 @@ module.exports = function(app, passport) {
   app.get('/login', function(req, res) {
     res.render('login'); // need login.hbs
   });
+  app.get('/login', function(req, res) {
+    res.render('login'); // need login.hbs
+  });
+
+  app.post(
+    '/signup',
+    passport.authenticate('local-signup', {
+      successRedirect: '/',
+      failureRedirect: '/signup'
+    }) // change successredirect
+  );
 
   // Render 404 page for any unmatched routes
   app.get('*', function(req, res) {
