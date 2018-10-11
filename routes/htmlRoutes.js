@@ -9,6 +9,10 @@ module.exports = function(app, passport) {
     res.render('index');
   });
 
+  app.get('/signup', function(req, res) {
+    res.render('signup'); //need signup.hbs
+  });
+
   // Render 404 page for any unmatched routes
   app.get('*', function(req, res) {
     res.render('404');
