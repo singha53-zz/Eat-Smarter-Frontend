@@ -1,11 +1,7 @@
 html {
   min-height: 100%;
 }
-body {
-  background: url("https://images.unsplash.com/photo-1495195129352-aeb325a55b65?ixlib=rb-0.3.5&s=4be08f60880c4f9b5344eb20d13465ee&auto=format&fit=crop&w=1355&q=80");
-  /* background-repeat: no-repeat; */
-  background-size: cover;
-}
+
 
 /* hide sign in buttons */
 .hidden {
@@ -254,11 +250,11 @@ nav .brand-logo {
   height: 100%;
 }
 
-body {
+/* body {
   background: url("../Images/homepagebackground.jpg"); */
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+  /* background-repeat: no-repeat;
+  background-size: cover; */
+/* } */
 
 th {
   background: white;
