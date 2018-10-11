@@ -33,6 +33,12 @@ module.exports = function(app, passport) {
     })
   );
 
+  app.get('/logout', function(req, res) {
+    req.session.destroy(function(err) {
+      res.redirect('/');
+    });
+  });
+
   // Render 404 page for any unmatched routes
   app.get('*', function(req, res) {
     res.render('404');
