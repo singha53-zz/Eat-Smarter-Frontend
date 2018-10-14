@@ -135,29 +135,6 @@ var refreshExamples = function() {
   });
 };
 
-// handleFormSubmit is called whenever we submit a new example
-// Save the new example to the db and refresh the list
-// var handleFormSubmit = function(event) {
-//   event.preventDefault();
-
-//   var example = {
-//     text: $exampleText.val().trim(),
-//     description: $exampleDescription.val().trim()
-//   };
-
-//   if (!(example.text && example.description)) {
-//     alert("You must enter an example text and description!");
-//     return;
-//   }
-
-//   API.saveExample(example).then(function() {
-//     refreshExamples();
-//   });
-
-//   $exampleText.val("");
-//   $exampleDescription.val("");
-// };
-
 var handleFormSubmit = function(event) {
   event.preventDefault();
 
@@ -165,20 +142,20 @@ var handleFormSubmit = function(event) {
     meal: $meal.val(),
     allergy: $allergies.val()
   };
-  console.log(recipe)
+  
  if(recipe.meal === ''){
    recipe.meal = 'nil'
  }
  if(recipe.allergy.length === 0){
    recipe.allergy.push('nil')
  }
-console.log(recipe)
+
 var url = `/search/${recipe.meal}/${recipe.allergy}`
-console.log(url)
+
 
   API.getRecipe(url).then(res => {
     $('#recipeList').empty();
-        console.log(res);
+        
         for (var i = 1; i < res.matches.length; i++) {
           var image;
           if (res.matches[i].attributes.course !== undefined) {
@@ -198,15 +175,10 @@ console.log(url)
 $(document).on('click', '.recipe', function(event) {
 counter = 0;
 
-  console.log( window.location)
-  console.log(event.currentTarget.id)
 var recipe = event.currentTarget.id;
-console.log(recipe)
   var url = `/search/${recipe}/`
 
 API.getRecipe(url).then(res => {
-console.log(res)
-console.log(res.nutritionEstimates.length < 1)
 var recipeObj = {name: res.name,
   recipeID: res.id,
   time:res.totalTime,
@@ -220,7 +192,6 @@ recipeObj.calories = "NA"
 recipeObj.nutritionEstimates = null
 recipeObj.nutritionEstimatesAvail = `<div id="recipeServes" class="col s12">Nutritional information <span style="color:red;"> not </span> available</div>`
 } else {
-  // console.log(res.nutritionEstimates[72].value)
 recipeObj.calories = res.nutritionEstimates.filter(d => {
   return d.attribute === "ENERC_KCAL"
 })[0].value
@@ -229,8 +200,6 @@ recipeObj.nutritionEstimatesAvail = `<div id="recipeServes" class="col s12">Nutr
 
 }
 
-console.log(recipeObj)
-// $('#recipeName').innerHTML = res.name;
 $("#recipeName").html(recipeObj.name)
 $("#recipeImg").attr("src", recipeObj.imageUrl)
 $("#recipeTime").html(`Time: ${recipeObj.time}`)
@@ -238,48 +207,6 @@ $("#recipeFeeds").html(`Feeds: ${recipeObj.feeds}`)
 $("#recipeIngredients").html(`Ingredients: ${recipeObj.ingredients}`)
 $("#recipeServes").html(`Calories: ${recipeObj.calories}`)
 $("#recipeNutri").html(recipeObj.nutritionEstimatesAvail)
-
-// $('#selectRecipe').empty();
-//  $('#selectRecipe').append(`<div class="row">
-//           <div id=${res.id} class="col s6">
-//           <img class = "responsive-img" src = ${recipeObj.imageUrl}>
-//           </div>
-//           <div class="col s6">
-//           <div class="row">
-// <div id="recipeTime" class="col s12">Time: ${recipeObj.time}</div>
-// <div id="recipeFeeds" class="col s12">Feeds: ${recipeObj.feeds}</div>
-// <div id="recipeIngredients" class="col s12">Ingredients: ${recipeObj.ingredients}</div>
-// <div id="recipeServes" class="col s12">Calories: ${recipeObj.calories}</div>
-//           </div>
-//           </div>
-//           ${recipeObj.nutritionEstimatesAvail}
-//         </div>
-//               `)
-// $('#selectRecipe').append(`        <div class="col s5" id=${res.id}>
-
-// <img src = ${recipeObj.imageUrl} class="responsive-img" src="https://lh3.googleusercontent.com/UfzLfk9ugfdHhepQcvY30yBVA-070xMFYM-e72JZXdN2e2bP827PHte_9FatjPYqQl8-GO2wSFu0GkFtchoqocM=s180">
-
-//         </div>
-//         <div class="col s4">
-
-// <div id="recipeTime" class="col s12">Time: ${recipeObj.time}</div>
-//                   <div id="recipeFeeds" class="col s12">Feeds: ${recipeObj.feeds}</div>
-//                   <div id="recipeIngredients" class="col s12">Ingredients: ${recipeObj.ingredients}</div>
-//                   <div id="recipeServes" class="col s12">Calories: ${recipeObj.calories}</div>  
-
-//         </div>
-//         <div class="col s3">
-
-//  <hr>
-//           <a id="fav" class="waves-effect waves-light btn"><i class="material-icons">thumb_up</i></a>
-//           <hr>
-//           <a id="getRecipe" class="waves-effect waves-light btn"><i class="material-icons">launch</i></a>
-//           <hr>
-//           <!-- Dropdown Trigger -->
-//           <a class='dropdown-trigger btn' href='#' data-target='dropdown5'><i class="material-icons">add_circle_outline</i></a>
-
-//          </div>
-//          <p id="recipeServes" class="col s12">${recipeObj.nutritionEstimatesAvail}</p>`)
 
 // add recipe link  to upload button
 $("#getRecipe").attr("href",  recipeObj.recipeUrl)
@@ -308,29 +235,16 @@ var handleDeleteBtnClick = function() {
 $submitBtn.on("click", handleFormSubmit);
 
 var nutrientData = window.nutrientData;
-console.log(nutrientData)
-
- $("#tabs-swipe-demo li").click(function (e) {
-   console.log(e)
-    console.log(nutrientData)
- })
 
 // add recipe to database
 $(document).on('click', '.add', function(event) {
   if(counter === 0){
   var addRecipe = window.recipeInfo;
-console.log(addRecipe)
+
   // add chips to calendar
   var ref_this = $("ul.tabs li a.active");
-  console.log(`${ref_this[0].id}-${event.target.id}`)
   // addRecipe.day = `${ref_this[0].id}`;
   addRecipe.calendar = `${ref_this[0].id}-${event.target.id}`;
-
-
-// ## extract recipe id
-// var recipeID = $('#selectRecipe div:first').children().attr('id');
-// console.log(recipeID)
-//   var url = `/search/${recipeID}/`
 
   $('#'+ref_this[0].id+'-'+event.target.id).append(`  <div class="chip" id=${addRecipe.recipeID}>
     ${addRecipe.name}
@@ -338,15 +252,11 @@ console.log(addRecipe)
   </div>`)
 
 //  make piechart
-console.log(addRecipe.nutritionEstimates)
 if(addRecipe.nutritionEstimates !== null){
 var nutrientData = window.nutrientData;
 var nutritionEstimates = JSON.parse(addRecipe.nutritionEstimates)
-console.log(nutrientData);
-console.log(nutritionEstimates)
   for (let i = 0; i < nutrientData.length; i++) {
   nutrientData[i].freq[addRecipe.recipeID] =  nutritionEstimates.filter(d => {
-    console.log(d.attribute === nutrientData[i].State)
   return d.attribute === nutrientData[i].State
   })[0].value
   }
