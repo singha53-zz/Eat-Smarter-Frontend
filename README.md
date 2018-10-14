@@ -2,7 +2,8 @@
 </br>
 
 ```
- A web application that allows users to search and save thousands of recipes. Users can also register to gain access to recipe health information, and add recipes to their favourites for later. 
+ A web application that allows users to search and save thousands of recipes. 
+ Users can also register to gain access to recipe health information, and add recipes to their favourites for later. 
 ```
 
 ## LIVE LINK: 
@@ -11,12 +12,13 @@
 ### KEY FEATURES: 
 </br>
 
-```
  Unregistered Visitor Can: 
+```
  * Search thousands of recipes without registering 
  * Drag and drop recipes for each day of the week to create a meal plan 
- 
+```
  Registered Users Can: 
+```
  * Search thousands of recipes and get an overview of recipe content on click
        - Cooking Time 
        - # of people it will feed
