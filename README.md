@@ -1,5 +1,6 @@
 # EATSMARTER 
 </br>
+
 ```
  A web application that allows users to search and save thousands of recipes. Users can also register to gain access to recipe health information, and add recipes to their favourites for later. 
 ```
@@ -30,6 +31,7 @@
 
 ### TOOLS USED: 
 </br>
+
 ```
  * Javascript 
      * node.js
@@ -41,6 +43,7 @@
 
 ### GETTING STARTED: 
 </br>
+
 ```
 * npm install
 * npm install sequelize-cli
