@@ -16,7 +16,7 @@ if(req.params.allergy === "nil"){
 // app_id=6fe80130
 // app_key=e47479bfbd3e29b4ddd5ceb95d60916f
 
-  var url = `https://api.yummly.com/v1/api/recipes?_app_id=${process.env.YUMMLY_ID}&_app_key=${process.env.YUMMLY_KEY}=${req.params.meal.replace(
+  var url = `https://api.yummly.com/v1/api/recipes?_app_id=6fe80130&_app_key=e47479bfbd3e29b4ddd5ceb95d60916f&q=${req.params.meal.replace(
       ' ',
       '+'
     )}&requirePictures=true${req.params.allergy.split(',')
@@ -36,7 +36,9 @@ if(req.params.allergy === "nil"){
 //  search for a given recipe
 app.get("/search/:recipe", function(req, res) {
     console.log(req.params)
-    var url = `https://api.yummly.com/v1/api/recipe/${req.params.recipe}?_app_id=${process.env.YUMMLY_ID}&_app_key=${process.env.YUMMLY_KEY}`;
+    var url = 'https://api.yummly.com/v1/api/recipe/' +
+      req.params.recipe +
+      '?_app_id=6fe80130&_app_key=e47479bfbd3e29b4ddd5ceb95d60916f';
 
       axios.get(url)
   .then(function(response) {
