@@ -231,24 +231,55 @@ recipeObj.nutritionEstimatesAvail = `<div id="recipeServes" class="col s12">Nutr
 
 console.log(recipeObj)
 // $('#recipeName').innerHTML = res.name;
-document.getElementById("recipeName").innerHTML = recipeObj.name
+$("#recipeName").html(recipeObj.name)
+$("#recipeImg").attr("src", recipeObj.imageUrl)
+$("#recipeTime").html(`Time: ${recipeObj.time}`)
+$("#recipeFeeds").html(`Feeds: ${recipeObj.feeds}`)
+$("#recipeIngredients").html(`Ingredients: ${recipeObj.ingredients}`)
+$("#recipeServes").html(`Calories: ${recipeObj.calories}`)
+$("#recipeNutri").html(recipeObj.nutritionEstimatesAvail)
 
-$('#selectRecipe').empty();
- $('#selectRecipe').append(`<div class="row">
-          <div id=${res.id} class="col s6">
-          <img class = "responsive-img" src = ${recipeObj.imageUrl}>
-          </div>
-          <div class="col s6">
-          <div class="row">
-<div id="recipeTime" class="col s12">Time: ${recipeObj.time}</div>
-<div id="recipeFeeds" class="col s12">Feeds: ${recipeObj.feeds}</div>
-<div id="recipeIngredients" class="col s12">Ingredients: ${recipeObj.ingredients}</div>
-<div id="recipeServes" class="col s12">Calories: ${recipeObj.calories}</div>
-          </div>
-          </div>
-          ${recipeObj.nutritionEstimatesAvail}
-        </div>
-              `)
+// $('#selectRecipe').empty();
+//  $('#selectRecipe').append(`<div class="row">
+//           <div id=${res.id} class="col s6">
+//           <img class = "responsive-img" src = ${recipeObj.imageUrl}>
+//           </div>
+//           <div class="col s6">
+//           <div class="row">
+// <div id="recipeTime" class="col s12">Time: ${recipeObj.time}</div>
+// <div id="recipeFeeds" class="col s12">Feeds: ${recipeObj.feeds}</div>
+// <div id="recipeIngredients" class="col s12">Ingredients: ${recipeObj.ingredients}</div>
+// <div id="recipeServes" class="col s12">Calories: ${recipeObj.calories}</div>
+//           </div>
+//           </div>
+//           ${recipeObj.nutritionEstimatesAvail}
+//         </div>
+//               `)
+// $('#selectRecipe').append(`        <div class="col s5" id=${res.id}>
+
+// <img src = ${recipeObj.imageUrl} class="responsive-img" src="https://lh3.googleusercontent.com/UfzLfk9ugfdHhepQcvY30yBVA-070xMFYM-e72JZXdN2e2bP827PHte_9FatjPYqQl8-GO2wSFu0GkFtchoqocM=s180">
+
+//         </div>
+//         <div class="col s4">
+
+// <div id="recipeTime" class="col s12">Time: ${recipeObj.time}</div>
+//                   <div id="recipeFeeds" class="col s12">Feeds: ${recipeObj.feeds}</div>
+//                   <div id="recipeIngredients" class="col s12">Ingredients: ${recipeObj.ingredients}</div>
+//                   <div id="recipeServes" class="col s12">Calories: ${recipeObj.calories}</div>  
+
+//         </div>
+//         <div class="col s3">
+
+//  <hr>
+//           <a id="fav" class="waves-effect waves-light btn"><i class="material-icons">thumb_up</i></a>
+//           <hr>
+//           <a id="getRecipe" class="waves-effect waves-light btn"><i class="material-icons">launch</i></a>
+//           <hr>
+//           <!-- Dropdown Trigger -->
+//           <a class='dropdown-trigger btn' href='#' data-target='dropdown5'><i class="material-icons">add_circle_outline</i></a>
+
+//          </div>
+//          <p id="recipeServes" class="col s12">${recipeObj.nutritionEstimatesAvail}</p>`)
 
 // add recipe link  to upload button
 $("#getRecipe").attr("href",  recipeObj.recipeUrl)
