@@ -1,4 +1,7 @@
 $(document).ready(function() {
+
+
+
 var counter = 0;
 
   // Materlize functionality
@@ -36,14 +39,14 @@ var API = {
 
 // delete chip on click
   $(document).on('click', '.close', function(event) {
+    counter = 0;
     console.log($(this).parent().remove())
    console.log($(this).parent()[0].id)
    API.deleteRecipe($(this).parent()[0].id)
-       window.location.reload()
+      //  window.location.reload()
    window.getRecipes()
 
   })
-
 
   $('#sunday-breakfast').chips({placeholder: 'Breakfast',secondaryPlaceholder: '+Tag'});
   $('#sunday-lunch').chips({placeholder: 'Lunch',secondaryPlaceholder: '+Tag'});
@@ -241,6 +244,9 @@ $('#selectRecipe').empty();
         </div>
               `)
 
+// add recipe link  to upload button
+$("#getRecipe").attr("href",  recipeObj.recipeUrl)
+
 //  save data to window
  window.recipeInfo = recipeObj
 
@@ -310,6 +316,7 @@ console.log(addRecipe)
   // add chips to calendar
   var ref_this = $("ul.tabs li a.active");
   console.log(`${ref_this[0].id}-${event.target.id}`)
+  // addRecipe.day = `${ref_this[0].id}`;
   addRecipe.calendar = `${ref_this[0].id}-${event.target.id}`;
 
 
@@ -336,21 +343,9 @@ console.log(nutritionEstimates)
   return d.attribute === nutrientData[i].State
   })[0].value
   }
-  addRecipe.nutritionEstimates = JSON.stringify(nutrientData);
-  $('#piechart').empty();
-  dashboard('#piechart', nutrientData); 
+  // $('#piechart').empty();
+  // dashboard('#piechart', nutrientData); 
 }
-
-console.log(addRecipe)
-// post recipe to database
-  $.ajax({
-      headers: {
-        "Content-Type": "application/json"
-      },
-      type: "POST",
-      url: "api/recipes",
-      data: JSON.stringify(addRecipe)
-    })
 
 //   API.getRecipe(url).then(res => {
 //     console.log(res.nutritionEstimates.length)
@@ -370,13 +365,38 @@ console.log(addRecipe)
 //   addRecipe.nutrientData = null
 // }
 //   })
+
+
+// addRecipe.nutrientData = nutrientData;
+// // update energy content
+// $("#power-gauge").empty();
+// console.log(addRecipe.nutrientData)
+// console.log(addRecipe.nutrientData[0].freq)
+// for(var prop in addRecipe.nutrientData[0].freq){
+//   energy += addRecipe.nutrientData[0].freq[prop]/addRecipe.feeds
+// }
+// console.log(energy)
+// onDocumentReady(energy);
+
+addRecipe.nutrientData = JSON.stringify(nutrientData);
+// post recipe to database
+  $.ajax({
+      headers: {
+        "Content-Type": "application/json"
+      },
+      type: "POST",
+      url: "api/recipes",
+      data: JSON.stringify(addRecipe)
+    }).then(run =>{
+window.getRecipes()
+    })
   }
   counter++
 
 })
 
 $(document).on('click', '#getRecipe', function(event) {
-$("#getRecipe").attr("href",  window.recipeInfo.sourceRecipeUrl)
+$("#getRecipe").attr("href",  window.recipeInfo.recipeUrl)
 })
 
 

@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
   // add initialize recipe to dashboard
   setRecipe();
 
@@ -17,7 +16,7 @@ $(document).ready(function() {
   imageUrl:"https://lh3.googleusercontent.com/UfzLfk9ugfdHhepQcvY30yBVA-070xMFYM-e72JZXdN2e2bP827PHte_9FatjPYqQl8-GO2wSFu0GkFtchoqocM=s180",
   recipeUrl:"http://www.bigoven.com/recipe/awesome-pepperoni-pizza/165695",
   calories:  655.87,
-  nutritionEstimates: JSON.stringify([{"attribute":"FAT_KCAL","value":280},{"attribute":"FASAT","value":13.73},{"attribute":"FOLDFE","value":269.02},{"attribute":"WATER","value":127.6},{"attribute":"FAMS","value":12.24},{"attribute":"FIBTG","value":2.75},{"attribute":"PROCNT","value":30},{"attribute":"CHOCDF","value":61.69},{"attribute":"CHOLE","value":0.08},{"attribute":"FAPU","value":1.84}]),
+  nutritionEstimates: JSON.stringify([{"attribute":"ENERC_KCAL","value":280},{"attribute":"PROCNT","value":30},{"attribute":"SUGAR","value":0.85},{"attribute":"WATER","value":127.6},{"attribute":"CHOCDF","value":61.69}]),
   nutritionEstimatesAvail:`<div id="recipeServes" class="col s12">Nutritional information available</div>`
        }
      } else {
@@ -28,7 +27,11 @@ $(document).ready(function() {
   }
 
   function getRecipes(){
+//     var ref_this = $("ul.tabs li a.active");
+// console.log(`${ref_this[0].id}`)
+
     $.get("/api/recipes", function(data) {
+      console.log(data)
       console.log(data.length)
 
       if(data.length !== 0){
@@ -43,26 +46,19 @@ console.log(data)
 
 // update piechart
 var nutrientData=[
-    {State:'FAT_KCAL',freq:{}}
-    ,{State:'FASAT',freq:{}}
-    ,{State:'FOLDFE',freq:{}}
-    // ,{State:'ENERC_KJ',freq:{}}
-    ,{State:'WATER',freq:{}}
-    ,{State:'FAMS',freq:{}}
-    ,{State:'FIBTG',freq:{}}
+    {State:'ENERC_KCAL',freq:{}}
     ,{State:'PROCNT',freq:{}}
+    ,{State:'SUGAR',freq:{}}
+    ,{State:'WATER',freq:{}}
     ,{State:'CHOCDF',freq:{}}
-    ,{State:'CHOLE',freq:{}}
-    ,{State:'FAPU',freq:{}}
-    // ,{State:'VITA_IU',freq:{}}
-    // ,{State:'ENERC_KCAL',freq:{}}
     ];
-
+console.log(data)
 data.forEach(d => {
-  d.nutritionEstimates = JSON.parse(d.nutritionEstimates)
+  console.log(d)
+  d.nutritionEstimates = JSON.parse(d.nutrientData)
  if(d.nutritionEstimates !== null){
   for (let i = 0; i < nutrientData.length; i++) {
-  nutrientData[i].freq[d.recipeID] =  d.nutritionEstimates[i].freq[d.recipeID]
+  nutrientData[i].freq[d.recipeID] =  d.nutritionEstimates[i].freq[d.recipeID]/d.feeds
   }
   }
 });
@@ -70,24 +66,33 @@ console.log(nutrientData)
 window.nutrientData = nutrientData;
   $('#piechart').empty();
   dashboard('#piechart', nutrientData);
+
+// update gauges
+$("#power-gauge").empty();
+var energy = 0;
+for(var prop in nutrientData[2].freq){
+  energy += nutrientData[2].freq[prop]
+}
+console.log(energy)
+if(energy > 40){
+  alert('Are you serious? Please, lower your sugar intake!!')
+}
+onDocumentReady(energy);
+
       } else{
         $('#piechart').empty();
         var nutrientData=[
-    {State:'FAT_KCAL',freq:{}}
-    ,{State:'FASAT',freq:{}}
-    ,{State:'FOLDFE',freq:{}}
-    // ,{State:'ENERC_KJ',freq:{}}
-    ,{State:'WATER',freq:{}}
-    ,{State:'FAMS',freq:{}}
-    ,{State:'FIBTG',freq:{}}
+    {State:'ENERC_KCAL',freq:{}}
     ,{State:'PROCNT',freq:{}}
+    ,{State:'SUGAR',freq:{}}
+    ,{State:'WATER',freq:{}}
     ,{State:'CHOCDF',freq:{}}
-    ,{State:'CHOLE',freq:{}}
-    ,{State:'FAPU',freq:{}}
-    // ,{State:'VITA_IU',freq:{}}
-    // ,{State:'ENERC_KCAL',freq:{}}
     ];
     window.nutrientData = nutrientData;
+
+    $("#power-gauge").empty();
+    energy=0
+    onDocumentReady(energy);
       }
 
     });
