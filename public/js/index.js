@@ -236,7 +236,7 @@ document.getElementById("recipeName").innerHTML = recipeObj.name
 $('#selectRecipe').empty();
  $('#selectRecipe').append(`<div class="row">
           <div id=${res.id} class="col s6">
-          <img "materialboxed" src = ${recipeObj.imageUrl}>
+          <img class = "responsive-img" src = ${recipeObj.imageUrl}>
           </div>
           <div class="col s6">
           <div class="row">
