@@ -34,9 +34,7 @@ if(req.params.allergy === "nil"){
 //  search for a given recipe
 app.get("/search/:recipe", function(req, res) {
     console.log(req.params)
-    var url = 'https://api.yummly.com/v1/api/recipe/' +
-      req.params.recipe +
-      `?_app_id=${process.env.YUMMLY_ID}&_app_key=${process.env.YUMMLY_KEY}`;
+    var url = `https://api.yummly.com/v1/api/recipe/${req.params.recipe}?_app_id=${process.env.YUMMLY_ID}&_app_key=${process.env.YUMMLY_KEY}`;
 
       axios.get(url)
   .then(function(response) {
