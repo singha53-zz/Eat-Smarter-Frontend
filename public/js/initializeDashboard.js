@@ -22,17 +22,13 @@ $(document).ready(function() {
      } else {
        window.recipeInfo =  data
      }
-  console.log(window.recipeInfo)
+
   })
   }
 
   function getRecipes(){
-//     var ref_this = $("ul.tabs li a.active");
-// console.log(`${ref_this[0].id}`)
 
     $.get("/api/recipes", function(data) {
-      console.log(data)
-      console.log(data.length)
 
       if(data.length !== 0){
       data.forEach(d =>{
@@ -42,7 +38,6 @@ $(document).ready(function() {
     <i class="close material-icons">close</i>
   </div>`)
       });
-console.log(data)
 
 // update piechart
 var nutrientData=[
@@ -52,9 +47,8 @@ var nutrientData=[
     ,{State:'WATER',freq:{}}
     ,{State:'CHOCDF',freq:{}}
     ];
-console.log(data)
+
 data.forEach(d => {
-  console.log(d)
   d.nutritionEstimates = JSON.parse(d.nutrientData)
  if(d.nutritionEstimates !== null){
   for (let i = 0; i < nutrientData.length; i++) {
@@ -62,7 +56,7 @@ data.forEach(d => {
   }
   }
 });
-console.log(nutrientData)
+
 window.nutrientData = nutrientData;
   $('#piechart').empty();
   dashboard('#piechart', nutrientData);
@@ -73,7 +67,7 @@ var energy = 0;
 for(var prop in nutrientData[2].freq){
   energy += nutrientData[2].freq[prop]
 }
-console.log(energy)
+
 if(energy > 40){
   alert('Are you serious? Please, lower your sugar intake!!')
 }
