@@ -7,14 +7,7 @@
     "start": "node server.js",
     "lint": "eslint **/*.js --quiet",
     "fix": "eslint --fix .",
-    "test": "npm run lint && NODE_ENV=test mocha -u tdd --reporter spec --exit",
-    "sql:migrate:undo": "npm run sql db:migrate:undo:all",
-    "sql:migrate": "npm run sql db:migrate",
-    "sql:seed:undo": "npm run sql db:seed:undo:all",
-    "sql:seed": "npm run sql db:seed:all",
-    "sql:s": "npm run sql:migrate:undo && npm run sql:migrate && npm run sql:seed",
-    "sql": "./node_modules/sequelize-cli/lib/sequelize",
-    "sqlize:s": "sequelize db:migrate:undo && db:migrate && db:seed:all"
+    "test": "npm run lint && NODE_ENV=test mocha -u tdd --reporter spec --exit"
   },
   "license": "ISC",
   "dependencies": {

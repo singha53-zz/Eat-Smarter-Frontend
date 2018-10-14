@@ -28,6 +28,8 @@ if(req.params.allergy === "nil"){
   axios.get(url)
   .then(function(response) {
     res.json(response.data)
+  }).catch(err => {
+    console.log(err)
   })
   });
 
@@ -40,6 +42,8 @@ app.get("/search/:recipe", function(req, res) {
   .then(function(response) {
     
     res.json(response.data)
+  }).catch(err =>{
+    console.log(err)
   })
 })
 
