@@ -506,3 +506,8 @@ rect:hover {  fill:blue; }
 		font-weight: bold;
 		fill: #666;
 	}
+
+
+.gauge {
+  padding-top: 3rem;
+}
