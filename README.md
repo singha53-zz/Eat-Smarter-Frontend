@@ -25,7 +25,7 @@
        - Calories 
        - Amount of Ingredients 
        - Link to full recipe 
- * User can add recipe to their favourites tab by simply clicking the **Like** button for later 
+ * User can add recipe to their favourites tab by simply clicking the 'Like' button for later 
  * User can add recipe chip to each day of the week 
  * Recieve immidiate indication of sugar intake based on recipes selected through a interactive visual graph
  
@@ -49,7 +49,7 @@
 ```
 * npm install
 * npm install sequelize-cli
-* create a local database **CREATE DATABASE yummlydb** from schema.sql file
+* create a local database 'CREATE DATABASE yummlydb' from schema.sql file
 ```
 
 
