@@ -166,7 +166,13 @@ var handleFormSubmit = function(event) {
     allergy: $allergies.val()
   };
   console.log(recipe)
-
+ if(recipe.meal === ''){
+   recipe.meal = 'nil'
+ }
+ if(recipe.allergy.length === 0){
+   recipe.allergy.push('nil')
+ }
+console.log(recipe)
 var url = `/search/${recipe.meal}/${recipe.allergy}`
 console.log(url)
 
@@ -230,7 +236,7 @@ document.getElementById("recipeName").innerHTML = recipeObj.name
 $('#selectRecipe').empty();
  $('#selectRecipe').append(`<div class="row">
           <div id=${res.id} class="col s6">
-          <img "materialboxed" src = ${recipeObj.imageUrl}>
+          <img class = "responsive-img" src = ${recipeObj.imageUrl}>
           </div>
           <div class="col s6">
           <div class="row">
@@ -270,41 +276,11 @@ var handleDeleteBtnClick = function() {
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 
-// var nutrientData=[
-//     {State:'FAT_KCAL',freq:{}}
-//     ,{State:'FASAT',freq:{}}
-//     ,{State:'FOLDFE',freq:{}}
-//     // ,{State:'ENERC_KJ',freq:{}}
-//     ,{State:'WATER',freq:{}}
-//     ,{State:'FAMS',freq:{}}
-//     ,{State:'FIBTG',freq:{}}
-//     ,{State:'PROCNT',freq:{}}
-//     ,{State:'CHOCDF',freq:{}}
-//     ,{State:'CHOLE',freq:{}}
-//     ,{State:'FAPU',freq:{}}
-//     // ,{State:'VITA_IU',freq:{}}
-//     // ,{State:'ENERC_KCAL',freq:{}}
-//     ];
 var nutrientData = window.nutrientData;
 console.log(nutrientData)
 
  $("#tabs-swipe-demo li").click(function (e) {
    console.log(e)
-// nutrientData=[
-//     {State:'FAT_KCAL',freq:{}}
-//     ,{State:'FASAT',freq:{}}
-//     ,{State:'FOLDFE',freq:{}}
-//     // ,{State:'ENERC_KJ',freq:{}}
-//     ,{State:'WATER',freq:{}}
-//     ,{State:'FAMS',freq:{}}
-//     ,{State:'FIBTG',freq:{}}
-//     ,{State:'PROCNT',freq:{}}
-//     ,{State:'CHOCDF',freq:{}}
-//     ,{State:'CHOLE',freq:{}}
-//     ,{State:'FAPU',freq:{}}
-//     // ,{State:'VITA_IU',freq:{}}
-//     // ,{State:'ENERC_KCAL',freq:{}}
-//     ];
     console.log(nutrientData)
  })
 
@@ -347,36 +323,6 @@ console.log(nutritionEstimates)
   // dashboard('#piechart', nutrientData); 
 }
 
-//   API.getRecipe(url).then(res => {
-//     console.log(res.nutritionEstimates.length)
-//     console.log(res.nutritionEstimates)
-
-// if(res.nutritionEstimates.length >1){
-// var nutrientData = window.nutrientData;
-//   for (let i = 0; i < nutrientData.length; i++) {
-//   nutrientData[i].freq[recipeID] =  res.nutritionEstimates.filter(d => {
-//   return d.attribute === nutrientData[i].State
-//   })[0].value
-//   }
-//   addRecipe.nutrientData = JSON.stringify(nutrientData);
-//   $('#piechart').empty();
-//   dashboard('#piechart', nutrientData);
-// } else {
-//   addRecipe.nutrientData = null
-// }
-//   })
-
-
-// addRecipe.nutrientData = nutrientData;
-// // update energy content
-// $("#power-gauge").empty();
-// console.log(addRecipe.nutrientData)
-// console.log(addRecipe.nutrientData[0].freq)
-// for(var prop in addRecipe.nutrientData[0].freq){
-//   energy += addRecipe.nutrientData[0].freq[prop]/addRecipe.feeds
-// }
-// console.log(energy)
-// onDocumentReady(energy);
 
 addRecipe.nutrientData = JSON.stringify(nutrientData);
 // post recipe to database
@@ -399,20 +345,4 @@ $(document).on('click', '#getRecipe', function(event) {
 $("#getRecipe").attr("href",  window.recipeInfo.recipeUrl)
 })
 
-
-
-// var freqData=[
-// {State:'AL',freq:{low:4786, mid:1319, high:249}}
-// ,{State:'AZ',freq:{low:1101, mid:412, high:674}}
-// ,{State:'CT',freq:{low:932, mid:2149, high:418}}
-// ,{State:'DE',freq:{low:832, mid:1152, high:1862}}
-// ,{State:'FL',freq:{low:4481, mid:3304, high:948}}
-// ,{State:'GA',freq:{low:1619, mid:167, high:1063}}
-// ,{State:'IA',freq:{low:1819, mid:247, high:1203}}
-// ,{State:'IL',freq:{low:4498, mid:3852, high:942}}
-// ,{State:'IN',freq:{low:797, mid:1849, high:1534}}
-// ,{State:'KS',freq:{low:162, mid:379, high:471}}
-// ];
-
-// dashboard('#piechart', freqData);
 })

@@ -27,16 +27,17 @@
     </ul>
   </div>
 </nav>
+
+
+
 <div class="container">
-  {{!-- <button><a href="/logout">Logout</a></button>
-  <button><a href="/fav">Favourites</a></button>
-  <button><a href="/summary">Weekly summary</a></button> --}}
+
     <div class="row">
       <div class="col s3">
 
         <div id="recipeList" style="padding-top: 1rem; overflow: auto;max-height: 90vh;">
 
-<div class="card horizontal">
+      <div class="card horizontal">
       <div class="card-stacked">
         <div class="card-content">
             <img id="Awesome-Pepperoni-Pizza-1873784" src="https://lh3.googleusercontent.com/UfzLfk9ugfdHhepQcvY30yBVA-070xMFYM-e72JZXdN2e2bP827PHte_9FatjPYqQl8-GO2wSFu0GkFtchoqocM=s90">
@@ -73,7 +74,8 @@
 
       </div>
     </div>
-
+</div>
+</div>
     <div class="col s6">
       <!-- enter dish -->
       <div class="input-field">
@@ -105,62 +107,43 @@
         <i class="material-icons right">send</i>
       </button>
 
+<h4 id="recipeName" style="text-align:center;"> Awesome Pepperoni Pizza </h4>
+      <div class="row" id="selectRecipe">
+        <div class="col s5" id="Awesome Pepperoni Pizza">
 
-      <div class="row">
-        <h4 id="recipeName" style="text-align:center;"> Awesome Pepperoni Pizza </h4>
-        <div class="col s9">
-          <div id="selectRecipe">
+<img class = "responsive-img" src="https://lh3.googleusercontent.com/UfzLfk9ugfdHhepQcvY30yBVA-070xMFYM-e72JZXdN2e2bP827PHte_9FatjPYqQl8-GO2wSFu0GkFtchoqocM=s180">
 
-            <div class="row">
+        </div>
+        <div class="col s4">
 
-              <div id="Awesome Pepperoni Pizza" class="col s6">
-                <img "materialboxed"="" src="https://lh3.googleusercontent.com/UfzLfk9ugfdHhepQcvY30yBVA-070xMFYM-e72JZXdN2e2bP827PHte_9FatjPYqQl8-GO2wSFu0GkFtchoqocM=s180">
-              </div>
-              <div class="col s6">
-                <div class="row">
-                  <div id="recipeTime" class="col s12">Time: 45 min</div>
+<div id="recipeTime" class="col s12">Time: 45 min</div>
                   <div id="recipeFeeds" class="col s12">Feeds: 4</div>
                   <div id="recipeIngredients" class="col s12">Ingredients: 8</div>
-                  <div id="recipeServes" class="col s12">Calories: 655.87</div>
-                </div>
-              </div>
-              <div id="recipeServes" class="col s12">Nutritional information is available</div>
-            </div>
+                  <div id="recipeServes" class="col s12">Calories: 655.87</div>  
 
-          </div>
         </div>
         <div class="col s3">
-          <hr>
+
+ <hr>
           <a id="fav" class="waves-effect waves-light btn"><i class="material-icons">thumb_up</i></a>
           <hr>
           <a id="getRecipe" class="waves-effect waves-light btn"><i class="material-icons">launch</i></a>
           <hr>
           <!-- Dropdown Trigger -->
           <a class='dropdown-trigger btn' href='#' data-target='dropdown5'><i class="material-icons">add_circle_outline</i></a>
-    </div>
-</div>
-<div class="col s3">
-<hr>
-<a id = "fav" class="waves-effect waves-light btn"><i class="material-icons">thumb_up</i></a>
-<hr>
-<a id="getRecipe" class="waves-effect waves-light btn" target="_blank"><i class="material-icons">launch</i></a>
-<hr>
-  <!-- Dropdown Trigger -->
-  <a class='dropdown-trigger btn' href='#' data-target='dropdown5'><i class="material-icons">add_circle_outline</i></a>
 
-  <!-- Dropdown Structure -->
-  <ul id='dropdown5' class='dropdown-content'>
+         </div>
+         <p id="recipeServes" class="col s12">Nutritional information is available</p>
+      </div>
+
+{{!-- calendar --}}
+
+<ul id='dropdown5' class='dropdown-content'>
     <li><a class="add" id="breakfast" href="#!">Breakfast</a></li>
     <li><a class="add" id="lunch" href="#!">Lunch</a></li>
     <li><a class="add" id="dinner" href="#!">Dinner</a></li>
     <li><a class="add" id="snacks" href="#!">Snacks</a></li>
-  </ul>
-
-
-  
-</div>
- </div>
-
+</ul>
 
 <ul id="tabs-swipe-demo" class="tabs col-center-block">
     <li class="tab col s1"><a id="sunday" class="active" href="#sun">S</a></li>
@@ -170,7 +153,7 @@
     <li class="tab col s1"><a id="thursday" href="#thurs">T</a></li>
     <li class="tab col s1"><a id="friday" href="#fri">F</a></li>
     <li class="tab col s1"><a id="saturday" href="#satur">S</a></li>
-  </ul>
+</ul>
 
   <div id="sun" class="col s12">
     <!-- Default with no input (automatically generated)  -->
@@ -214,19 +197,17 @@
   <div id="saturday-lunch" class="chips chips-placeholder"></div>
   <div id="saturday-snacks" class="chips chips-placeholder"></div>
   </div>
-       </div>
-      
-      <div class="col s3">
+</div>
+
+{{!-- gauge --}}
+<div class="col s3">
+      <div class = "row">
       <strong>Toal Sugar intake (grams)</strong>
+      <p>Recommended sugar intake: Male (37.5g) and Female (21.5g)</p>
 <div id="power-gauge" style="text-align: center;"></div>
       </div>
-      <p>Recommended sugar intake: Male (37.5g) and Female (21.5g)</p>
+      
     </div>
-
-    <div class="col s3">
-      <div id="piechart"> </div>
-    </div>
-  </div>
 </div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

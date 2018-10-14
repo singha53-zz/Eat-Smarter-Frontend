@@ -6,6 +6,13 @@ module.exports = function(app) {
 // search a given recipe keyword
 app.get("/search/:meal/:allergy", function(req, res) {
 
+if(req.params.meal === "nil"){
+  req.params.meal = ''
+}
+if(req.params.allergy === "nil"){
+  req.params.allergy = ''
+}
+
   var url = `https://api.yummly.com/v1/api/recipes?_app_id=6fe80130&_app_key=e47479bfbd3e29b4ddd5ceb95d60916f&q=${req.params.meal.replace(
       ' ',
       '+'
@@ -14,12 +21,9 @@ app.get("/search/:meal/:allergy", function(req, res) {
         return '&allowedAllergy[]=' + allergy;
       })
       .join('')}&maxResult=15`;
-    console.log(url);
 
   axios.get(url)
   .then(function(response) {
-   console.log(response.data.matches)
-
     res.json(response.data)
   })
   });
