@@ -11,7 +11,7 @@ var app = express();
 var PORT = process.env.PORT || 3000;
 
 // For Passport
-app.use(session({ secret: 'keyboard cat', store: sessionStore, resave: true, saveUninitialized:true})); // session secret
+app.use(session({ secret: 'keyboard cat', store: sessionStore, resave: false, saveUninitialized:false})); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
