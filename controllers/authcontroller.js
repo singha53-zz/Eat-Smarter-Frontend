@@ -18,6 +18,36 @@ exports.dashboard = function(req, res) {
  
 }
 
+exports.getFaves = function(req, res) {
+
+        db.favRecipe.findAll({
+          where: {
+            userId: req.user.id
+          }
+        }).then(function(result) {
+          res.json(result);
+        });
+ 
+}
+
+exports.newFave = function(req, res) {
+
+    console.log('server:' + JSON.stringify(req.body))
+    console.log('req.user:'+ JSON.stringify(req.user))
+
+    var recipe = req.body;
+    recipe.userId = req.user.id
+    console.log(recipe)
+    
+  db.favRecipe.create(recipe).then(function(result) {
+    console.log(result)
+      res.json(result)
+    }).catch(err =>{
+      console.log(err)
+    })
+   
+}
+
 exports.logout = function(req, res) {
  
     req.session.destroy(function(err) {
