@@ -1,15 +1,16 @@
 require("dotenv").config();
-var express                = require("express"),
-    bodyParser             = require("body-parser"),
-    exphbs                 = require("express-handlebars"),
-    session               = require('express-session')
-    passport               = require("passport")
+var express = require("express");
+var bodyParser = require("body-parser"); 
+var exphbs = require("express-handlebars"); 
+var session = require('express-session'); 
+var passport = require("passport");
+var SESSION_SECRET = process.env.SESSION_SECRET || 'keyboard cat';
 
 var app = express();
 var PORT = process.env.PORT || 3000;
 
 // For Passport
-app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
+app.use(session({ secret: SESSION_SECRET, resave: true, saveUninitialized:true})); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
@@ -18,11 +19,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static("public"));
 
-app.use(require("client-sessions")({
-  secret: "O Canada our home and native land.",
-  resave: false,
-  saveUninitialized: false
-}))
 
 // Handlebars
 app.set('views', './views')
@@ -64,4 +60,3 @@ models.sequelize.sync(syncOptions).then(function() {
   });
 });
 
-module.exports = app;
