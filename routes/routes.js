@@ -1,5 +1,6 @@
 var db = require("../models");
 var axios = require('axios');
+var authController = require('../controllers/authcontroller.js');
 
 module.exports = function (app) {
 
@@ -12,6 +13,24 @@ module.exports = function (app) {
   app.get("/summary", function (req, res) {
     res.render("summary");
   });
+
+  app.get('/signup', authController.signup);
+  app.get('/signin', authController.signin);
+  
+  app.post('/signup', passport.authenticate('local-signup', {
+      successRedirect: '/dashboard',
+
+      failureRedirect: '/signup'
+  }));
+  app.get('/dashboard', isLoggedIn,authController.dashboard);
+  app.get('/logout',authController.logout);
+
+  app.post('/signin', passport.authenticate('local-signin', {
+      successRedirect: '/dashboard',
+
+      failureRedirect: '/signin'
+  }
+  ));
 
   // search a given recipe keyword
 app.get("/search/:meal/:allergy", function(req, res) {
