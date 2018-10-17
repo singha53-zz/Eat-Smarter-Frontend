@@ -18,6 +18,18 @@ exports.dashboard = function(req, res) {
  
 }
 
+exports.getFaves = function(req, res) {
+ 
+   
+ 
+}
+
+exports.newFave = function(req, res) {
+ 
+   
+ 
+}
+
 exports.logout = function(req, res) {
  
     req.session.destroy(function(err) {
