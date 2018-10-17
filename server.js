@@ -18,11 +18,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static("public"));
 
-app.use(require("client-sessions")({
-  secret: "O Canada our home and native land.",
-  resave: false,
-  saveUninitialized: false
-}))
+// app.use(require("client-sessions")({
+//   secret: "O Canada our home and native land.",
+//   resave: false,
+//   saveUninitialized: false
+// }))
 
 // Handlebars
 app.set('views', './views')
