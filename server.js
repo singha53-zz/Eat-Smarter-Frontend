@@ -19,7 +19,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static("public"));
 
-
 // Handlebars
 app.set('views', './views')
 app.engine(
@@ -28,6 +27,7 @@ app.engine(
     defaultLayout: "main"
   })
 );
+
 app.set("view engine", "handlebars");
 
 //Models
@@ -35,6 +35,7 @@ var models = require("./models");
 
 //Routes
 var authRoute = require('./routes/auth.js')(app, passport);
+require('./routes/routes.js')(app, passport);
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
