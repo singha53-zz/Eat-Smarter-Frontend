@@ -22,7 +22,9 @@ module.exports = function (app) {
 
       failureRedirect: '/signup'
   }));
+
   app.get('/dashboard', isLoggedIn,authController.dashboard);
+
   app.get('/logout',authController.logout);
 
   app.post('/signin', passport.authenticate('local-signin', {
@@ -31,6 +33,11 @@ module.exports = function (app) {
       failureRedirect: '/signin'
   }
   ));
+
+  app.get("/api/favRecipes",isLoggedIn, authController.getFaves);
+
+  app.post("/api/favRecipes",isLoggedIn, authController.newFave);  
+
 
   // search a given recipe keyword
 app.get("/search/:meal/:allergy", function(req, res) {
@@ -77,35 +84,6 @@ app.get("/search/:meal/:allergy", function(req, res) {
       console.log(err)
     })
   })
-  
-    // Get all favourite recipes
-    app.get("/api/favRecipes", function(req, res) {
-      db.favRecipe.findAll({
-        where: {
-          userId: req.user.id
-        }
-      }).then(function(result) {
-        res.json(result);
-      });
-    });
-  
-    // Create a new favourite recipe
-    app.post("/api/favRecipes", function(req, res) {
-      console.log('server:' + JSON.stringify(req.body))
-      console.log('req.user:'+ JSON.stringify(req.user))
-  
-      var recipe = req.body;
-      recipe.userId = req.user.id
-      console.log(recipe)
-      // recipe.userId = req.user.id
-    db.favRecipe.create(recipe).then(function(result) {
-      console.log(result)
-        res.json(result)
-      }).catch(err =>{
-        console.log(err)
-      })
-      // res.redirect('/dashboard')
-    });
     
     // Create a new recipe
     app.post("/api/recipes", function(req, res) {
