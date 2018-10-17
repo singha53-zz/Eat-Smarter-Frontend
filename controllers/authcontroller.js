@@ -19,13 +19,19 @@ exports.dashboard = function(req, res) {
 }
 
 exports.getFaves = function(req, res) {
- 
-   
+
+        db.favRecipe.findAll({
+          where: {
+            userId: req.user.id
+          }
+        }).then(function(result) {
+          res.json(result);
+        });
  
 }
 
 exports.newFave = function(req, res) {
-    
+
     console.log('server:' + JSON.stringify(req.body))
     console.log('req.user:'+ JSON.stringify(req.user))
 
